@@ -12,6 +12,12 @@ use Illuminate\Support\MessageBag;
 
 class UnitController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['checkKey']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

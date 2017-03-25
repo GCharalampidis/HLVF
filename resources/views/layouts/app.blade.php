@@ -53,7 +53,7 @@
                     <li><a href="{{ url('/staff') }}">Staff</a></li>
                     @if(null !== Auth::user())
                         @if(Auth::user()->isAdmin())
-                            <li><a href="{{ url('/admin') }}">Admin</a></li>
+                            <li><a href="{{ url('/admin') }}">Dashboard</a></li>
                         @endif
                     @endif
                 </ul>

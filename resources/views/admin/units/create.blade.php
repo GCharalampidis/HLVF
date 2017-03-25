@@ -21,7 +21,7 @@
 
     <div class="form-group">
         {!! Form::label('year', 'Year:') !!}
-        {!! Form::text('year', null, ['class'=>'form-control']) !!}
+        {!! Form::number('year', null, ['class'=>'form-control']) !!}
     </div>
 
     {!! Form::hidden('user_id', Illuminate\Support\Facades\Auth::id()) !!}

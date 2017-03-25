@@ -12,15 +12,16 @@
                         <div class="form-group">
                             {!! Form::label('key', 'Key:') !!}
                             {!! Form::text('key', null, ['class'=>'form-control']) !!}
-
                         </div>
 
                         {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}
-
+                       <i>&nbsp; &nbsp; <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Ask your lecturer for the unit key.</i>
                         {!! Form::close()!!}
                     </div>
 
+
                 </div>
+
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>

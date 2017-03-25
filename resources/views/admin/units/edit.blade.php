@@ -18,7 +18,7 @@
 
     <div class="form-group">
         {!! Form::label('year', 'Year:') !!}
-        {!! Form::text('year', null, ['class'=>'form-control']) !!}
+        {!! Form::number('year', null, ['class'=>'form-control']) !!}
     </div>
 
     {!! Form::submit('Update Unit', ['class'=>'btn btn-primary']) !!}

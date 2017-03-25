@@ -21,10 +21,10 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
                                             <th>Photo</th>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Contact</th>
                                             <th>Units</th>
                                             @if(\Illuminate\Support\Facades\Auth::check())
                                                <th>Actions</th>
@@ -34,22 +34,36 @@
                                     <tbody>
                                         @foreach($users as $user)
                                             <tr>
-                                                <td>{{$user->id}}</td>
-                                                <td><img src="{{$user->photo->path}}" class="img-rounded" height=70 alt=""></td>
+                                                <td><img src="{{$user->photo->path}}" class="img-rounded" height="80" width="80" alt=""></td>
                                                 <td><a href="{{route('staff.show', $user->id)}}">{{$user->name}}</a></td>
                                                 <td>{{$user->email}}</td>
+                                                <td>
+                                                    @if(!trim($user->email) == '')
+                                                        <i class="fa fa-envelope-o fa-lg"></i>
+                                                    @endif
+                                                    @if(!trim($user->hnumber) == '')
+                                                        <i class="fa fa-phone fa-lg"></i>
+                                                    @endif
+                                                    @if(!trim($user->mnumber) == '')
+                                                        <i class="fa fa fa-mobile fa-lg"></i>
+                                                    @endif
+                                                    @if(!trim($user->skype) == '')
+                                                        <i class="fa fa fa-skype fa-lg"></i>
+                                                    @endif
+
+                                                </td>
+
+
                                                 <td>{{$user->unitsCount()}}</td>
+
                                                 @if(\Illuminate\Support\Facades\Auth::check())
                                                     <td>
-                                                        <div class="form-group">
-                                                            <a href="{{route('staff.edit', $user->id)}}" class="btn btn-primary btn-block">Edit</a>
-                                                        </div>
-                                                        {!! Form::open(['method'=>'DELETE', 'action'=> ['UserController@destroy', $user->id]]) !!}
-
-                                                            {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-block']) !!}
-
-                                                        {!! Form::close() !!}
-
+                                                        <a class="btn btn-primary" href="{{route('staff.edit', $user->id)}}" aria-label="Edit">
+                                                            <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+                                                        </a>
+                                                        <a class="btn btn-danger" href="{{route('staff.delete', $user->id)}}" aria-label="Delete">
+                                                            <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                                        </a>
                                                     </td>
                                                 @endif
                                             </tr>

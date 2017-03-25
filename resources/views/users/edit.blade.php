@@ -27,11 +27,28 @@
                             </div>
 
                             <div class="form-group">
+                                {!! Form::label('hnumber', 'Home number:') !!}
+                                {!! Form::number('hnumber', null, ['class'=>'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('mnumber', 'Mobile number:') !!}
+                                {!! Form::number('mnumber', null, ['class'=>'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('skype', 'Skype:') !!}
+                                {!! Form::text('skype', null, ['class'=>'form-control']) !!}
+                            </div>
+
+                            <div class="form-group">
                                 <img src="{{$user->photo->path}}" class="img-rounded" height=170 alt="" style="padding-bottom: 10px;">
                                 {!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
                             </div>
 
-                            {!! Form::submit('Update Profile', ['class'=>'btn btn-info']) !!}
+
+                            {!! Form::submit('Update Profile', ['class'=>'btn btn-success']) !!}
+                            {!! Form::reset('Reset', ['class'=>'btn btn-warning']) !!}
 
                         {!! Form::close() !!}
 

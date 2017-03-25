@@ -16,6 +16,11 @@ class Unit extends Model
         return $this->hasMany('App\Question');
     }
 
+    public function questionsCount()
+    {
+        return Question::where(['unit_id' => $this->id])->where(['active' => 1])->count();
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');

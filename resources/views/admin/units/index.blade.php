@@ -19,7 +19,7 @@
                 <th>Title</th>
                 <th>Semester</th>
                 <th>Year</th>
-                <th>Lectuter</th>
+                <th>Active Questions</th>
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Actions</th>
@@ -33,20 +33,28 @@
                     <td><a href="{{route('admin.units.show', $unit->id)}}">{{$unit->name}}</a></td>
                     <td>{{$unit->semester}}</td>
                     <td>{{$unit->year}}</td>
-                    <td>{{$unit->user->name}}</td>
+                    <td>{{$unit->questionsCount()}}</td>
                     <td>{{$unit->created_at->diffForHumans()}}</td>
                     <td>{{$unit->updated_at->diffForHumans()}}</td>
                     <td>
-                        <div class="form-group">
-                            <a href="{{route('admin.units.edit', $unit->id)}}" class="btn btn-primary btn-block">Edit</a>
-                        </div>
-                        {!! Form::open(['method'=>'DELETE', 'action'=> ['UnitController@destroy', $unit->id]]) !!}
-
-                        {!! Form::submit('Delete', ['class'=>'btn btn-danger btn-block']) !!}
-
-                        {!! Form::close() !!}
-
+                        <a class="btn btn-primary" href="{{route('admin.units.edit', $unit->id)}}" aria-label="Edit">
+                            <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-danger" href="{{route('admin.units.delete', $unit->id)}}" aria-label="Delete">
+                            <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                        </a>
                     </td>
+                    {{--<td>--}}
+                        {{--<div class="form-group">--}}
+                            {{--<a href="{{route('admin.units.edit', $unit->id)}}" class="btn btn-primary btn-block">Edit</a>--}}
+                        {{--</div>--}}
+                        {{--{!! Form::open(['method'=>'DELETE', 'action'=> ['UnitController@destroy', $unit->id]]) !!}--}}
+
+                        {{--{!! Form::submit('Delete', ['class'=>'btn btn-danger btn-block']) !!}--}}
+
+                        {{--{!! Form::close() !!}--}}
+
+                    {{--</td>--}}
                 </tr>
             @endforeach
          @endif
