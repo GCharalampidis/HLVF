@@ -28,7 +28,7 @@
                                     {!! Form::password('password', ['class'=>'form-control']) !!}
                                 </div>
 
-                                {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
+                                {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
 
                             {!! Form::close()!!}
 

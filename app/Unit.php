@@ -25,4 +25,24 @@ class Unit extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function avgScores()
+    {
+        $unitavg = 0;
+        $count = 0;
+
+        foreach($this->questions as $question)
+        {
+            foreach($question->answers as $answer)
+            {
+
+                $unitavg = $unitavg + $answer->toValue();
+                $count++;
+            }
+        }
+
+
+        return $unitavg/$count;
+    }
+
 }

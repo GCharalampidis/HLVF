@@ -105,7 +105,7 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="{{url('/admin/analytics')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Analytics</a>
+                        <a href="{{route('admin.analytics.index')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Analytics</a>
                     </li>
 {{--
                     <li>

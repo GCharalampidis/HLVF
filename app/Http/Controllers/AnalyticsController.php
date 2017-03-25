@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Unit;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class AnalyticsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,11 @@ class AnalyticsController extends Controller
      */
     public function index()
     {
-        //
+        $userId = Auth::id();
+
+        $units = Unit::all()->where('user_id', $userId);
+
+        return view('admin.analytics', compact('units'));
     }
 
     /**

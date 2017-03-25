@@ -35,6 +35,7 @@ Route::group(['middlewareGroups'=>'web','auth.basic'], function()
     Route::resource('/posts', 'PostController');
     Route::resource('/questions', 'QuestionController');
     Route::resource('/answers', 'AnswerController');
+    Route::resource('/admin/analytics', 'AnalyticsController');
 
     Route::get('admin/units/{user}/delete', ['as' => 'admin.units.delete', 'uses' => 'UnitController@destroy']);
     Route::resource('/admin/units', 'UnitController');
@@ -44,9 +45,9 @@ Route::group(['middlewareGroups'=>'web','auth.basic'], function()
 
     Route::get('/createquestion', 'QuestionController@create');
 
-    Route::get('/unit/{id}/questions', 'QuestionController@testIndex');
+    Route::get('/unit/{id}/questions', ['as' => 'admin.units.testindex', 'uses' => 'QuestionController@testIndex']);
 
-    Route::get('/unit/{id}/questions/create', 'QuestionController@testCreate');
+    Route::get('/unit/{id}/questions/create', ['as' => 'admin.units.testcreate', 'uses' => 'QuestionController@testCreate']);
 
 });
 Route::get('/answer/{key}', 'StudentQuestionsController@testIndex');

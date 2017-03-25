@@ -3,23 +3,24 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-6 col-md-offset-3" style="padding-top: 20px">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{$unit->name}}</div>
-
                     <div class="panel-body">
-                        <ul>
-                            <li>{{$unit->semester}} {{$unit->year}}</li>
-                            <li>Key: {{$unit->key}}</li>
-                            <br/>
+                        <h1 class="page-header">{{$unit->name}}</h1>
+                        <div class="list-group">
 
-                        {!! Form::open(['method'=>'DELETE', 'action'=> ['UnitController@destroy', $unit->id]]) !!}
+                            <li class="list-group-item"><i class="fa fa fa-calendar fa-lg"></i>&nbsp {{$unit->semester}} {{$unit->year}}</li>
+                            <li class="list-group-item"><i class="fa fa-key fa-lg"></i>&nbsp; {{$unit->key}}</li>
+                        <div style="padding-top: 10px">
+                            <a class='btn btn-primary' href="{{route('admin.units.index')}}">Back</a>
+                            <a class='btn btn-success' href="{{route('admin.units.testindex', $unit->id)}}">Questions</a>
+                            <a class="btn btn-warning" href="{{route('admin.units.edit', $unit->id)}}" >Edit</a>
+                            <a class='btn btn-danger' href="{{route('admin.units.delete', $unit->id)}}">Delete</a>
+                        </div>
 
-                        {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+                        </div>
 
-                        {!! Form::close() !!}
 
-                            <a href="{{url('/unit/'.$unit->id.'/questions')}}">Manage Questions</a>
 
                         </ul>
                     </div>
