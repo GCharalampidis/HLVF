@@ -16,7 +16,7 @@
 
     <div class="form-group">
         {!! Form::label('semester', 'Semester:') !!}
-        {!! Form::select('semester', array('Summer' => 'Summer', 'Spring' => 'Spring'), null, ['class'=>'form-control']) !!}
+        {!! Form::select('semester', array('Autumn' => 'Autumn', 'Summer' => 'Summer'), null, ['class'=>'form-control']) !!}
     </div>
 
     <div class="form-group">

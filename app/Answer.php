@@ -39,7 +39,7 @@ class Answer extends Model
         }
         elseif ($this->question->answer_type == 3)
         {
-            $value = 70;
+            $value = 50;
         }
 
         return $value;

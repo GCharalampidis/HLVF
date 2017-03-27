@@ -28,21 +28,28 @@ class Unit extends Model
 
     public function avgScores()
     {
-        $unitavg = 0;
-        $count = 0;
-
-        foreach($this->questions as $question)
+        if($this->questionsCount() > 0)
         {
-            foreach($question->answers as $answer)
-            {
+            $answersum = 0;
+            $count = 0;
 
-                $unitavg = $unitavg + $answer->toValue();
-                $count++;
+            foreach($this->questions as $question)
+            {
+                foreach($question->answers as $answer)
+                {
+                    $answersum = $answersum + $answer->toValue();
+                    $count++;
+                }
             }
+
+            $unitavg = $answersum/$count;
+        }
+        else
+        {
+            $unitavg = 0;
         }
 
-
-        return $unitavg/$count;
+        return $unitavg;
     }
 
 }
