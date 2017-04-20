@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Unit extends Model
@@ -28,7 +29,28 @@ class Unit extends Model
 
     public function activeLecture()
     {
-        //
+        $now = Carbon::now();
+
+        $mindiff = $this->lectures()->first()->date->diffInHours($now, false);
+        $minid = $this->lectures()->first()->id;
+
+        foreach ($this->lectures as $lecture)
+        {
+           if($lecture->date->lte($now))
+           {
+                if($lecture->date->diffInHours($now, false) < $mindiff)
+                {
+                    $mindiff = $lecture->date->diffInHours($now, false);
+                    $minid = $lecture->id;
+
+                }
+
+           }
+        }
+
+        $lecture = Lecture::find($minid);
+        return $lecture;
+
     }
 
 }

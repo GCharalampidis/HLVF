@@ -23,7 +23,7 @@ class Lecture extends Model
 
     public function questionsCount()
     {
-        return Question::where(['unit_id' => $this->id])->where(['active' => 1])->count();
+        return Question::where(['lecture_id' => $this->id])->where(['active' => 1])->count();
     }
 
     public function avgScores()

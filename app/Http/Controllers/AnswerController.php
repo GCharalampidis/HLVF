@@ -76,7 +76,11 @@ class AnswerController extends Controller
 
         $average = $sum/$count;
 
-        Lecture::where('id', '=', $request->get('id'))->update(['average' => $average]);
+        $lecture = Lecture::find($request->get('id'));
+        $lecture->average = $average;
+        $lecture->answers += 1;
+        $lecture->save();
+//        Lecture::where('id', '=', $request->get('id'))->update(['average' => $average]);
 
         return redirect('/thankyou');
     }

@@ -88,9 +88,10 @@ class StudentQuestionsController extends Controller
 
     public function testIndex($unitkey)
     {
-//        $unit = Unit::where('key',$unitkey)->first();
+        $unit = Unit::where('key',$unitkey)->first();
+        $lecture = $unit->activeLecture();
 
-        $lecture = Lecture::where('id',1)->first();
+//        $lecture = Lecture::where('id',44)->first();
         return view('answer.questions.index', compact('lecture'));
     }
 

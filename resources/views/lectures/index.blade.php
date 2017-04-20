@@ -10,8 +10,9 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Date</th>
+                                    <th>Questions</th>
+                                    <th>Students Answered</th>
                                     <th>Average</th>
-                                    <th>Answers</th>
                                     <th>Created</th>
                                     <th>Updated</th>
                                     {{--<th>Actions</th>--}}
@@ -20,16 +21,19 @@
                                 <tbody>
                                 {{--{{$questions = $unit->questions }}--}}
 
+                                <?php $count = 1; ?>
                                 @foreach($unit->lectures as $lecture)
 
                                     <tr>
                                         {{--<td><a href="{{route('staff.show', $user->id)}}">{{$user->name}}</a></td>--}}
-                                        <td><a href="{{route('lectures.show', $lecture->id)}}">Lecture #{{$lecture->id}}</a></td>
-                                        <td>{{$lecture->date->diffForHumans()}} ({{$lecture->date}})</td>
+                                        <td><a href="{{route('lectures.show', $lecture->id)}}">Lecture #{{$count}}</a></td>
+                                        <td>{{$lecture->date->diffForHumans()}} ({{$lecture->date->format('d-m-y H:i')}})</td>
+                                        <td>{{$lecture->questionsCount()}}</td>
                                         <td>{{$lecture->answers}}</td>
                                         <td>{{$lecture->average}}</td>
                                         <td>{{$lecture->created_at->diffForHumans()}}</td>
                                         <td>{{$lecture->updated_at->diffForHumans()}}</td>
+
 
                                             {{--<td>--}}
                                                 {{--<a class="btn btn-primary" href="{{route('staff.edit', $user->id)}}" aria-label="Edit">--}}
@@ -41,6 +45,7 @@
                                             {{--</td>--}}
 
                                     </tr>
+                                    <?php $count += 1; ?>
                                 @endforeach
                                 </tbody>
                             </table>
@@ -48,7 +53,6 @@
                             There are no lectures for this unit yet!
                         @endif
                         <div style="padding-top: 10px">
-                            <a class='btn btn-primary' href="{{URL::previous()}}">Back</a>
                             <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/create')}}">Create</a>
                             <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/masscreate')}}">Mass Create</a>
 

@@ -27,7 +27,6 @@ Route::get('/enterkey', function ()
    return view('answer/index');
 });
 
-//Why do I have to have this for @checkKey to work??
 Route::post('/a1d24fg41A', 'UnitController@checkKey');
 
 Route::group(['middlewareGroups'=>'web','auth.basic'], function()
@@ -50,6 +49,7 @@ Route::group(['middlewareGroups'=>'web','auth.basic'], function()
     Route::get('/unit/{id}/lectures', ['as' => 'lectures.testindex', 'uses' => 'LectureController@testIndex']);
     Route::get('/unit/{id}/lectures/create', ['as' => 'lectures.testcreate', 'uses' => 'LectureController@testCreate']);
     Route::get('/unit/{id}/lectures/masscreate', ['as' => 'lectures.testmasscreate', 'uses' => 'LectureController@testMassCreate']);
+    Route::post('/unit/lectures/massstore', ['as' => 'lectures.massstore', 'uses' => 'LectureController@massStore']);
     Route::get('/lecture/{id}/delete', ['as' => 'lectures.delete', 'uses' => 'LectureController@destroy']);
     Route::resource('/lectures', 'LectureController');
 

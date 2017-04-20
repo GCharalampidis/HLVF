@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Lecture;
 use App\Unit;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -125,5 +126,33 @@ class LectureController extends Controller
     {
         $unit = Unit::find($unitid);
         return view('lectures.masscreate', compact('unit'));
+    }
+
+    public function massStore(Request $request)
+    {
+        $input = $request->all();
+
+        $sdate = $request->get('starting_date');
+        $stime = $request->get('starting_time');
+        $nlectures = $request->get('lectures');
+        $date = $this->getDate($sdate.' '.$stime.':00');
+        $frequency = $request->get('frequency');
+
+        for($i = 0; $i < $nlectures; $i++)
+        {
+            $date = $date->addWeeks($frequency);
+            $input['date'] = $date;
+            Lecture::create($input);
+        }
+
+
+
+
+        return redirect('/unit/'.$request->unit_id.'/lectures');
+    }
+
+    public function getDate($date)
+    {
+        return Carbon::parse($date);
     }
 }
