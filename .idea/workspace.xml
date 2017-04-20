@@ -1,41 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77adac6f-1dd0-4a61-9848-8b9b1e2f8dd9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/migrations(200417)/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/migrations(200417)/2014_10_12_000000_create_users_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/migrations(200417)/2014_10_12_100000_create_password_resets_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/migrations(200417)/2017_02_21_133336_create_units_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/migrations(200417)/2017_02_21_134912_create_questions_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/migrations(200417)/2017_03_22_120252_create_photos_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lectures/create.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lectures/edit.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lectures/index.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lectures/masscreate.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/lectures/show.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_12_152417_create_posts_table.php" afterPath="$PROJECT_DIR$/public/migrations(200417)/2016_10_12_152417_create_posts_table.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_12_153430_add_is_admin_column_to_post_tables.php" afterPath="$PROJECT_DIR$/public/migrations(200417)/2016_10_12_153430_add_is_admin_column_to_post_tables.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2017_02_20_193521_create_roles_table.php" afterPath="$PROJECT_DIR$/public/migrations(200417)/2017_02_20_193521_create_roles_table.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2017_02_21_134920_create_answers_table.php" afterPath="$PROJECT_DIR$/public/migrations(200417)/2017_02_21_134920_create_answers_table.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2017_03_10_115231_add_path_column_to_posts.php" afterPath="$PROJECT_DIR$/public/migrations(200417)/2017_03_10_115231_add_path_column_to_posts.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2017_03_10_132008_add_role_column_to_users.php" afterPath="$PROJECT_DIR$/public/migrations(200417)/2017_03_10_132008_add_role_column_to_users.php" />
+    <list default="true" id="77adac6f-1dd0-4a61-9848-8b9b1e2f8dd9" name="Default" comment="Removed Answers, Added Lectures">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Answer.php" afterPath="$PROJECT_DIR$/app/Answer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnswerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentQuestionsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentQuestionsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/UnitController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/UnitController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Question.php" afterPath="$PROJECT_DIR$/app/Question.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Unit.php" afterPath="$PROJECT_DIR$/app/Unit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_02_21_133336_create_units_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_02_21_133336_create_units_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_02_21_134912_create_questions_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_02_21_134912_create_questions_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/units/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/units/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/units/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/units/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/answer/questions/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/answer/questions/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/questions/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/questions/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/questions/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/questions/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
     </list>
     <ignored path="cms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -672,7 +639,7 @@
       <workItem from="1490549279467" duration="791000" />
       <workItem from="1490615345297" duration="1473000" />
       <workItem from="1490653587307" duration="96000" />
-      <workItem from="1492684292344" duration="15308000" />
+      <workItem from="1492684292344" duration="15393000" />
     </task>
     <task id="LOCAL-00001" summary="Removed Answers, Added Lectures">
       <created>1492700203881</created>
@@ -681,11 +648,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492700203881</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Removed Answers, Added Lectures">
+      <created>1492700329068</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1492700329068</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192349000" />
+    <option name="totallyTimeSpent" value="192434000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
