@@ -19,7 +19,6 @@ class CreateUnitsTable extends Migration
             $table->string('semester');
             $table->string('name');
             $table->string('key')->unique();
-            $table->smallInteger('studentnumber');
             $table->integer('user_id')->unsigned()->nullable()->index();
             $table->timestamps();
         });

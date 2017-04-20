@@ -3,28 +3,33 @@
 @section('content')
 
 
-                        <h1 class="page-header">Questions for Lecture #{{$lecture->id}}</h1>
-                        @if(sizeof($lecture->questions) > 0)
+                        <h1 class="page-header">Lectures of {{$unit->name}}</h1>
+                        @if(sizeof($unit->lectures) > 0)
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Question</th>
-                                    <th>Type</th>
-                                    <th>Status</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Average</th>
+                                    <th>Answers</th>
+                                    <th>Created</th>
+                                    <th>Updated</th>
                                     {{--<th>Actions</th>--}}
-
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {{--{{$questions = $unit->questions }}--}}
 
-                                @foreach($lecture->questions as $question)
+                                @foreach($unit->lectures as $lecture)
 
                                     <tr>
                                         {{--<td><a href="{{route('staff.show', $user->id)}}">{{$user->name}}</a></td>--}}
-                                        <td>{{$question->text}}</td>
-                                        <td>{{$question->question_type}}</td>
-                                        <td>{{$question->active === 1 ? "Active" : "Not Active" }}</td>
+                                        <td><a href="{{route('lectures.show', $lecture->id)}}">Lecture #{{$lecture->id}}</a></td>
+                                        <td>{{$lecture->date->diffForHumans()}} ({{$lecture->date}})</td>
+                                        <td>{{$lecture->answers}}</td>
+                                        <td>{{$lecture->average}}</td>
+                                        <td>{{$lecture->created_at->diffForHumans()}}</td>
+                                        <td>{{$lecture->updated_at->diffForHumans()}}</td>
 
                                             {{--<td>--}}
                                                 {{--<a class="btn btn-primary" href="{{route('staff.edit', $user->id)}}" aria-label="Edit">--}}
@@ -40,10 +45,14 @@
                                 </tbody>
                             </table>
                         @else
-
-                            There are no questions for this lecture yet!
+                            There are no lectures for this unit yet!
                         @endif
-                        <br/><br/><a href="{{url('/lecture/'.$lecture->id.'/questions/create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>
+                        <div style="padding-top: 10px">
+                            <a class='btn btn-primary' href="{{URL::previous()}}">Back</a>
+                            <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/create')}}">Create</a>
+                            <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/masscreate')}}">Mass Create</a>
+
+                        </div>
                         {{--@if(\Illuminate\Support\Facades\Auth::check())--}}
                             {{--<a href="{{route('staff.create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>--}}
                         {{--@endif--}}

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionsTable extends Migration
+class CreatePhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,20 @@ class CreateQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('lecture_id')->unsigned();
-            $table->string('text');
-            $table->smallInteger('question_type');
-            $table->boolean('active');
+            $table->string('path');
             $table->timestamps();
         });
+
+        // Inserting defaul profile photo
+        DB::table('photos')->insert
+        (
+            array
+            (
+                'path' => 'user_default.jpg'
+            )
+        );
     }
 
     /**
@@ -29,6 +35,6 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('questions');
+        Schema::drop('photos');
     }
 }

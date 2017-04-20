@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Create Question for {{$unit->name}}</h1>
+    <h1>Create Question for Lecture #{{$lecture->id}}</h1>
 
     {!! Form::open(['method'=>'POST', 'action'=>'QuestionController@store']) !!}
 
@@ -16,8 +16,8 @@
 
 
         <div class="form-group">
-            {!! Form::label('answer_type', 'Type:') !!}
-            {!! Form::select('answer_type', array(1 => 'Smiley Faces', 2 => 'Smiley slider', 3 => 'Free text'), 1, ['class'=>'form-control']) !!}
+            {!! Form::label('question_type', 'Type:') !!}
+            {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley slider', 3 => 'Free text'), 1, ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
@@ -25,7 +25,7 @@
             {!! Form::select('active', array(0 => 'Not Active', 1 => 'Active'), 1, ['class'=>'form-control']) !!}
         </div>
 
-        {!!  Form::hidden('unit_id', $unit->id) !!}
+        {!!  Form::hidden('lecture_id', $lecture->id) !!}
 
         {!! Form::submit('Create Question', ['class'=>'btn btn-primary']) !!}
         

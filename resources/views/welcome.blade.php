@@ -8,7 +8,7 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                    <p>Hasta La Vista forms attempts to <b>solve</b> the issues that occur with <b>conventional means of feedback</b>.
+                    <p>HLVF attempts to <b>solve</b> the issues that occur with <b>conventional means of feedback</b>.
                     Specifically, by being giving students the opportunity to <b>recurrently</b> provide feedback from any device with access to
                     the Internet, by achieving <b>anonymity</b> since it does not require students to input any sort of credentials in order
                     to participate to answering process, by assisting students with <b>conveying their emotions</b>

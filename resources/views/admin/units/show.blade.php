@@ -11,12 +11,12 @@
 
                             <li class="list-group-item"><i class="fa fa fa-calendar fa-lg"></i>&nbsp {{$unit->semester}} {{$unit->year}}</li>
                             <li class="list-group-item"><i class="fa fa-key fa-lg"></i>&nbsp; {{$unit->key}}</li>
-                        <div style="padding-top: 10px">
-                            <a class='btn btn-primary' href="{{route('admin.units.index')}}">Back</a>
-                            <a class='btn btn-success' href="{{route('admin.units.testindex', $unit->id)}}">Questions</a>
-                            <a class="btn btn-warning" href="{{route('admin.units.edit', $unit->id)}}" >Edit</a>
-                            <a class='btn btn-danger' href="{{route('admin.units.delete', $unit->id)}}">Delete</a>
-                        </div>
+                            <div style="padding-top: 10px">
+                                <a class='btn btn-primary' href="{{route('admin.units.index')}}">Back</a>
+                                <a class='btn btn-success' href="{{route('lectures.testindex', $unit->id)}}">Lectures</a>
+                                <a class="btn btn-warning" href="{{route('admin.units.edit', $unit->id)}}" >Edit</a>
+                                <a class='btn btn-danger' href="{{route('admin.units.delete', $unit->id)}}">Delete</a>
+                            </div>
 
                         </div>
 

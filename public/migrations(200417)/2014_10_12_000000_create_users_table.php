@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 
-class CreateUnitsTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +12,16 @@ class CreateUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('units', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('year');
-            $table->string('semester');
             $table->string('name');
-            $table->string('key')->unique();
-            $table->smallInteger('studentnumber');
-            $table->integer('user_id')->unsigned()->nullable()->index();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('photo_id')->default('1');
+            $table->string('hnumber');
+            $table->string('mnumber');
+            $table->string('skype');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('units');
+        Schema::drop('users');
     }
 }

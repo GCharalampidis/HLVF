@@ -122,10 +122,10 @@ class UnitController extends Controller
         return redirect('admin/units');
     }
 
-    public function showQuestions()
-    {
-        return redirect('questions');
-    }
+//    public function showQuestions()
+//    {
+//        return redirect('questions');
+//    }
 
     public function checkKey(Request $request)
     {

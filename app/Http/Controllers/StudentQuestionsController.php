@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lecture;
 use App\Unit;
 use Illuminate\Http\Request;
 
@@ -87,9 +88,10 @@ class StudentQuestionsController extends Controller
 
     public function testIndex($unitkey)
     {
-        $unit = Unit::where('key',$unitkey)->first();
+//        $unit = Unit::where('key',$unitkey)->first();
 
-        return view('answer.questions.index', compact('unit'));
+        $lecture = Lecture::where('id',1)->first();
+        return view('answer.questions.index', compact('lecture'));
     }
 
 }

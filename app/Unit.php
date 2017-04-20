@@ -7,18 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Unit extends Model
 {
 
-    protected $fillable = ['name', 'semester', 'year', 'key', 'user_id'];
+    protected $fillable = ['name', 'semester', 'year', 'key', 'studentnumber', 'user_id'];
 
     protected $hidden = ['key'];
 
-    public function questions()
+    public function lectures()
     {
-        return $this->hasMany('App\Question');
-    }
-
-    public function questionsCount()
-    {
-        return Question::where(['unit_id' => $this->id])->where(['active' => 1])->count();
+        return $this->hasMany('App\Lecture');
     }
 
     public function user()
@@ -26,30 +21,14 @@ class Unit extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function avgScores()
+    public function lecturesCount()
     {
-        if($this->questionsCount() > 0)
-        {
-            $answersum = 0;
-            $count = 0;
+        return Lecture::where(['unit_id' => $this->id])->count();
+    }
 
-            foreach($this->questions as $question)
-            {
-                foreach($question->answers as $answer)
-                {
-                    $answersum = $answersum + $answer->toValue();
-                    $count++;
-                }
-            }
-
-            $unitavg = $answersum/$count;
-        }
-        else
-        {
-            $unitavg = 0;
-        }
-
-        return $unitavg;
+    public function activeLecture()
+    {
+        //
     }
 
 }

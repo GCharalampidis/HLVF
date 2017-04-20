@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lecture;
 use App\Question;
 use App\Unit;
 use Illuminate\Http\Request;
@@ -48,7 +49,7 @@ class QuestionController extends Controller
 
         Question::create($input);
 
-        return redirect('/unit/'.$request->unit_id.'/questions');
+        return redirect('/lecture/'.$request->lecture_id.'/questions');
     }
 
     /**
@@ -98,20 +99,20 @@ class QuestionController extends Controller
         //
     }
 
-    public function testIndex($unitid)
+    public function testIndex($lectureid)
     {
-        $unit = Unit::find($unitid);
+        $lecture = Lecture::find($lectureid);
 
 
 
-        return view('questions.index', compact('unit'));
+        return view('questions.index', compact('lecture'));
     }
 
-    public function testCreate($unitid)
+    public function testCreate($lectureid)
     {
 
-        $unit = Unit::find($unitid);
-        return view('questions.create', compact('unit'));
+        $lecture = Lecture::find($lectureid);
+        return view('questions.create', compact('lecture'));
 
 
     }

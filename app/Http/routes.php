@@ -4,6 +4,7 @@ use App\Post;
 use App\User;
 use App\Unit;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,8 @@ Route::post('/a1d24fg41A', 'UnitController@checkKey');
 Route::group(['middlewareGroups'=>'web','auth.basic'], function()
 {
 
-    Route::resource('/posts', 'PostController');
-    Route::resource('/questions', 'QuestionController');
-    Route::resource('/answers', 'AnswerController');
+
+
     Route::resource('/admin/analytics', 'AnalyticsController');
 
     Route::get('admin/units/{user}/delete', ['as' => 'admin.units.delete', 'uses' => 'UnitController@destroy']);
@@ -43,15 +43,30 @@ Route::group(['middlewareGroups'=>'web','auth.basic'], function()
     Route::get('staff/{user}/delete', ['as' => 'staff.delete', 'uses' => 'UserController@destroy']);
     Route::resource('/staff', 'UserController');
 
-    Route::get('/createquestion', 'QuestionController@create');
+    Route::resource('/answerquestions', 'AnswerController');
 
-    Route::get('/unit/{id}/questions', ['as' => 'admin.units.testindex', 'uses' => 'QuestionController@testIndex']);
+//    Route::get('/createquestion', 'QuestionController@create');
 
-    Route::get('/unit/{id}/questions/create', ['as' => 'admin.units.testcreate', 'uses' => 'QuestionController@testCreate']);
+    Route::get('/unit/{id}/lectures', ['as' => 'lectures.testindex', 'uses' => 'LectureController@testIndex']);
+    Route::get('/unit/{id}/lectures/create', ['as' => 'lectures.testcreate', 'uses' => 'LectureController@testCreate']);
+    Route::get('/unit/{id}/lectures/masscreate', ['as' => 'lectures.testmasscreate', 'uses' => 'LectureController@testMassCreate']);
+    Route::get('/lecture/{id}/delete', ['as' => 'lectures.delete', 'uses' => 'LectureController@destroy']);
+    Route::resource('/lectures', 'LectureController');
+
+    Route::get('/lecture/{id}/questions', ['as' => 'questions.testindex', 'uses' => 'QuestionController@testIndex']);
+    Route::get('/lecture/{id}/questions/create', ['as' => 'questions.testcreate', 'uses' => 'QuestionController@testCreate']);
+    Route::resource('/questions', 'QuestionController');
+
+
+
+
 
 });
+
 Route::get('/answer/{key}', 'StudentQuestionsController@testIndex');
+//watafa Route::get('/answer/{id}/create', ['as' => 'answers.testindex', 'uses' => 'QuestionController@testIndex']);
 //Route::resource('/answer', 'StudentQuestionsController');
+
 
 Route::get('thankyou', function()
 {
