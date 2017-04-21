@@ -15,7 +15,7 @@
                                     <th>Average</th>
                                     <th>Created</th>
                                     <th>Updated</th>
-                                    {{--<th>Actions</th>--}}
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -33,6 +33,14 @@
                                         <td>{{$lecture->average}}</td>
                                         <td>{{$lecture->created_at->diffForHumans()}}</td>
                                         <td>{{$lecture->updated_at->diffForHumans()}}</td>
+                                        <td>
+                                            <a class="btn btn-primary" href="{{route('lectures.edit', $lecture->id)}}" aria-label="Edit">
+                                                <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+                                            </a>
+                                            <a class="btn btn-danger" href="{{route('lectures.delete', $lecture->id)}}" aria-label="Delete">
+                                                <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
 
 
                                             {{--<td>--}}
@@ -55,7 +63,6 @@
                         <div style="padding-top: 10px">
                             <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/create')}}">Create</a>
                             <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/masscreate')}}">Mass Create</a>
-
                         </div>
                         {{--@if(\Illuminate\Support\Facades\Auth::check())--}}
                             {{--<a href="{{route('staff.create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>--}}
@@ -66,7 +73,9 @@
 
 
 
+                        <script>
 
+                        </script>
 
 
 

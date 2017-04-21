@@ -11,10 +11,12 @@
         <div class="form-group">
             {!! Form::label('date', 'Date:') !!}
             {!! Form::date('date', null, ['class'=>'form-control']) !!}
-
         </div>
 
-
+        <div class="form-group">
+            {!! Form::label('time', 'Time:') !!}
+            {!! Form::time('time', null, ['class'=>'form-control']) !!}
+        </div>
 
         {!!  Form::hidden('unit_id', $unit->id) !!}
 

@@ -12,8 +12,7 @@
     <title>Lecturer Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+    <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -23,9 +22,11 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+
 </head>
 
-<body id="admin-page">
+<body id="admin-page" style="padding-top:5px;">
 
 <div id="wrapper">
 
@@ -258,7 +259,7 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('js/libs.js')}}"></script>
+<script src="{{ elixir('js/all.js') }}"></script>
 
 @yield('footer')
 

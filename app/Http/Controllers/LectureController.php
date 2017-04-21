@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 class LectureController extends Controller
 {
@@ -46,6 +47,12 @@ class LectureController extends Controller
     {
         $input = $request->all();
 
+        $sdate = $request->get('date');
+        $stime = $request->get('time');
+        $date = $this->getDate($sdate.' '.$stime.':00');
+
+        $input['date'] = $date;
+
         Lecture::create($input);
 
         return redirect('/unit/'.$request->unit_id.'/lectures');
@@ -72,7 +79,9 @@ class LectureController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lecture = Lecture::findOrFail($id);
+
+        return view('lectures.edit', compact('lecture'));
     }
 
     /**
@@ -84,7 +93,13 @@ class LectureController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lecture = Lecture::findOrFail($id);
+
+        $lecture->update($request->all());
+
+        Session::flash('edited_lecture', 'The lecture has been edited.');
+
+        return redirect('/unit/'.$lecture->unit->id.'/lectures');
     }
 
     /**
@@ -99,9 +114,9 @@ class LectureController extends Controller
 
         $lecture->delete();
 
-        Session::flash('deleted_unit', 'The unit has been deleted.');
+        Session::flash('deleted_lecture', 'The lecture has been deleted.');
 
-        return redirect('admin/units');
+        return redirect('/unit/'.$lecture->unit->id.'/lectures');
     }
 
     public function testIndex($unitid)
