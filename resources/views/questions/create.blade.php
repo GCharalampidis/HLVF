@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Create Question for Lecture #{{$lecture->id}}</h1>
+    <h1>Create Question</h1>
 
     {!! Form::open(['method'=>'POST', 'action'=>'QuestionController@store']) !!}
 
@@ -27,7 +27,7 @@
 
         {!!  Form::hidden('lecture_id', $lecture->id) !!}
 
-        {!! Form::submit('Create Question', ['class'=>'btn btn-primary']) !!}
+        {!! Form::submit('Create Question', ['class'=>'btn btn-success']) !!}
         
     {!! Form::close()!!}
 

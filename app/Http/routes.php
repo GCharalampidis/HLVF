@@ -55,6 +55,7 @@ Route::group(['middlewareGroups'=>'web','auth.basic'], function()
 
     Route::get('/lecture/{id}/questions', ['as' => 'questions.testindex', 'uses' => 'QuestionController@testIndex']);
     Route::get('/lecture/{id}/questions/create', ['as' => 'questions.testcreate', 'uses' => 'QuestionController@testCreate']);
+    Route::get('/lecture/{id}/questions/delete', ['as' => 'questions.delete', 'uses' => 'QuestionController@destroy']);
     Route::resource('/questions', 'QuestionController');
 
 

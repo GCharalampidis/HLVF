@@ -8,6 +8,7 @@ use App\Unit;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 class QuestionController extends Controller
 {
@@ -73,7 +74,9 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = Question::findOrFail($id);
+
+        return view('questions.edit', compact('question'));
     }
 
     /**
@@ -96,7 +99,13 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = Question::findOrFail($id);
+
+        $question->delete();
+
+        Session::flash('deleted_question', 'The lecture has been deleted.');
+
+        return redirect('/lecture/'.$question->lecture->id.'/questions');
     }
 
     public function testIndex($lectureid)
