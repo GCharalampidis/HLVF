@@ -26,7 +26,7 @@
 
                                     <tr>
                                         {{--<td><a href="{{route('staff.show', $user->id)}}">{{$user->name}}</a></td>--}}
-                                        <td><a href="{{route('lectures.show', $lecture->id)}}">Lecture #{{$count}}</a></td>
+                                        <td><a href="{{route('lectures.show', $lecture->id)}}">Lecture #{{$count}} @if($unit->activeLecture()->id === $lecture->id) <i class="fa fa-check" aria-hidden="true"></i> @endif</a></td>
                                         <td>{{$lecture->date->diffForHumans()}} ({{$lecture->date->format('d-m-y H:i')}})</td>
                                         <td>{{$lecture->questionsCount()}}</td>
                                         <td>{{$lecture->answers}}</td>
