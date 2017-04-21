@@ -51,7 +51,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/enterkey') }}"> <font color="#32cd32it">Answer</font> </a></li>
-                    <li><a href="{{ url('/staff') }}">Staff</a></li>
+                    <li><a href="{{ url('/staff') }}">Users</a></li>
                     @if(null !== Auth::user())
                         @if(Auth::user()->isAdmin())
                             <li><a href="{{ url('/admin') }}">Dashboard</a></li>

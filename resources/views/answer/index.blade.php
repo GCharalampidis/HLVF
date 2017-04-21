@@ -14,8 +14,8 @@
                             {!! Form::text('key', null, ['class'=>'form-control']) !!}
                         </div>
 
-                        {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}
-                       <i>&nbsp; &nbsp; <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Ask your lecturer for the unit key.</i>
+                        {!! Form::submit('Go!', ['class'=>'btn btn-success']) !!}
+                            <i>&nbsp; &nbsp; <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Ask your lecturer for the unit key.</i>
                         {!! Form::close()!!}
                     </div>
 

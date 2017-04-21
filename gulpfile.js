@@ -21,8 +21,8 @@ var paths = {
 
 elixir(function(mix) {
 
-    mix.copy(paths.bootstrap + '/fonts/**', 'public/fonts')
-        .copy(paths.fontawesome + '/fonts/**', 'public/fonts')
+    mix.copy(paths.bootstrap + '/fonts/**', 'public/build/fonts')
+        .copy(paths.fontawesome + '/fonts/**', 'public/build/fonts')
 
         .styles([
             paths.bootstrap + "/css/bootstrap.min.css",

@@ -34,7 +34,7 @@
                                         <td>{{$lecture->created_at->diffForHumans()}}</td>
                                         <td>{{$lecture->updated_at->diffForHumans()}}</td>
                                         <td>
-                                            <a class="btn btn-primary" href="{{route('lectures.edit', $lecture->id)}}" aria-label="Edit">
+                                            <a class="btn btn-primary" href="#{{--{{route('lectures.edit', $lecture->id)}}--}}" aria-label="Edit">
                                                 <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
                                             </a>
                                             <a class="btn btn-danger" href="{{route('lectures.delete', $lecture->id)}}" aria-label="Delete">
