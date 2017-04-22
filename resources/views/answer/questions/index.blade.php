@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Questions for {{$lecture->name}} of {{$lecture->unit->name}} (<a target="_blank" href="{{route('staff.show', $lecture->unit->user->id )}}">{{$lecture->unit->user->name}})</a></div>
+                    <div class="panel-heading"><b>{{$lecture->name}}</b> ({{$lecture->date->diffForHumans()}}) of <b>{{$lecture->unit->name}}</b> <i>by <a target="_blank" href="{{route('staff.show', $lecture->unit->user->id )}}">{{$lecture->unit->user->name}}</a></i>.</div>
                     <div class="panel-body">
                         @if($lecture->questionsCount() > 0)
 
@@ -17,9 +17,8 @@
                                 @foreach($lecture->questions as $question)
                                         @if($question->active == 1)
                                             <div id="question_{{$i}}" @if ($i == 1) style="display: block;" @else style="display: none;" @endif>
-                                            <i>Question {{$i}} of {{$activequestions}}</i><br/><br/>
-
-                                            <center>
+                                                <h4 class="page-header"><i>Question {{$i}} of {{$activequestions}}</i></h4>
+                                                <center>
                                                 <h3>{{$question->text}}</h3>
                                                 @if($question->question_type == 1)
 
@@ -32,10 +31,17 @@
 
                                                 @elseif($question->question_type == 2)
 
-                                                    <input id="slider" name="content[]" type="range" min="0" max="100"  onchange="printValue('slider','textbox')" />
-                                                    <br/>
-                                                    <input id="textbox" type="text" size="5"/>
-                                                    <br/>
+                                                    {{--<input id="slider" name="content[]" type="range" min="0" max="100"  onchange="printValue('slider','textbox')" />--}}
+                                                    {{--<br/>--}}
+                                                    {{--<input id="textbox" type="text" size="5"/>--}}
+                                                    {{--<br/>--}}
+
+                                                    <div id="face">
+                                                        <div id="mouth-box">
+                                                            <div id="mouth" class="straight"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="slider"></div>
 
                                                 @elseif($question->question_type == 3)
 
@@ -73,15 +79,15 @@
         </div>
     </div>
 
-    <script>
-        function printValue(sliderID, textbox) {
-            var x = document.getElementById(textbox);
-            var y = document.getElementById(sliderID);
-            x.value = y.value;
-        }
+    {{--<script>--}}
+        {{--function printValue(sliderID, textbox) {--}}
+            {{--var x = document.getElementById(textbox);--}}
+            {{--var y = document.getElementById(sliderID);--}}
+            {{--x.value = y.value;--}}
+        {{--}--}}
 
-        window.onload = function() { printValue('slider', 'textbox'); }
-    </script>
+        {{--window.onload = function() { printValue('slider', 'textbox'); }--}}
+    {{--</script>--}}
 
     <script>
         function nextQuestion()

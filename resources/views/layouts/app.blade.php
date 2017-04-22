@@ -18,6 +18,60 @@
 
 
     <style>
+        #face {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            border: 3px solid black;
+            border-radius: 100px;
+            margin: 20px auto;
+            background-color: yellow;
+        }
+
+        #face:before, #face:after {
+            position: absolute;
+            content: "";
+            width: 10px;
+            height: 10px;
+            top: 30px;
+            border-radius: 10px;
+            background: black;
+        }
+        #face:before {
+            left: 30px;
+        }
+        #face:after {
+            left: 60px;
+        }
+
+        #mouth-box {
+            width: 60px;
+            height: 20px;
+            left: 2px;
+            top: 60px;
+            overflow: hidden;
+            background: white;
+            position: relative;
+            background-color: yellow;
+        }
+
+        #mouth {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            border: 3px solid black;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #mouth.straight {
+            height: 0px !important;
+            top: 7px !important;
+            border-width: 2px;
+            bottom: auto !important;
+        }
+
         body {
             font-family: 'Lato';
         }

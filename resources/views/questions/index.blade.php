@@ -60,7 +60,7 @@
     {{--</div>--}}
 
     <div style="display: flex;">
-        <ul id="left" style="cursor: move; min-width: 250px; min-height: 200px; background-color: #f0f8d1; margin: 5px;  border-radius: 25px;
+        <ul id="left" style="cursor: move; min-width: 250px; min-height: 200px; max-width:300px; background-color: #f0f8d1; margin: 5px;  border-radius: 25px;
     border: 2px solid #000000; margin-right: 1em; list-style-type: none;">
             Active:
             @foreach($lecture->questions as $question)
@@ -70,7 +70,7 @@
                 @endif
             @endforeach
         </ul>
-        <ul id="right" style="cursor: move; min-width: 250px; min-height: 100px; background-color: #ffbeae; margin: 5px;  border-radius: 25px;
+        <ul id="right" style="cursor: move; min-width: 250px; min-height: 200px; max-width:300px; background-color: #ffbeae; margin: 5px;  border-radius: 25px;
     border: 2px solid #000000; margin-right: 1em; list-style-type: none;">
             Inactive:
             @foreach($lecture->questions as $question)

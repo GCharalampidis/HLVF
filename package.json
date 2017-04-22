@@ -10,6 +10,8 @@
     "font-awesome": "^4.7.0",
     "fontawesome": "^4.7.2",
     "jquery": "^3.2.1",
+    "jquery-ui-dist": "^1.12.1",
+    "jquery-ui-touch-punch-c": "^1.4.0",
     "laravel-elixir": "^5.0.0"
   }
 }
