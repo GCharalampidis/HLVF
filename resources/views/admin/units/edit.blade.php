@@ -21,6 +21,11 @@
         {!! Form::number('year', null, ['class'=>'form-control']) !!}
     </div>
 
+    <div class="form-group">
+        {!! Form::label('studentnumber', 'Students:') !!}
+        {!! Form::number('studentnumber', null, ['class'=>'form-control']) !!}
+    </div>
+
     {!! Form::submit('Update Unit', ['class'=>'btn btn-primary']) !!}
 
     {!! Form::close()!!}

@@ -77,8 +77,14 @@ class AnswerController extends Controller
         $average = $sum/$count;
 
         $lecture = Lecture::find($request->get('id'));
-        $lecture->average = $average;
+
+        $totalscore = $lecture->average * $lecture->answers;
+        $totalscore += $average;
         $lecture->answers += 1;
+        $lecture->average = $totalscore / $lecture->answers;
+
+
+
         $lecture->save();
 //        Lecture::where('id', '=', $request->get('id'))->update(['average' => $average]);
 
@@ -132,33 +138,37 @@ class AnswerController extends Controller
 
     private function toValue($content)
     {
-//        $answer = $this->content;
-//        $value = 666;
-//        if($this->question->answer_type == 1)
-//        {
-//            if($answer == ':)')
-//            {
-//                $value = 100;
-//            }
-//            elseif ($answer == ':|')
-//            {
-//                $value = 50;
-//            }
-//            elseif ($answer == ':(')
-//            {
-//                $value = 0;
-//            }
-//        }
-//        elseif ($this->question->answer_type == 2)
-//        {
-//            $value = $answer;
-//        }
-//        elseif ($this->question->answer_type == 3)
-//        {
-//            $value = 50;
-//        }
 
-        $value = 56;
+        $value = -1;
+
+        if($content == ':)' || $content == ':|' || $content == ':(')
+        {
+            if($content == ':)')
+            {
+                $value = 100;
+            }
+            elseif ($content == ':|')
+            {
+                $value = 50;
+            }
+            elseif ($content == ':(')
+            {
+                $value = 0;
+            }
+            else
+            {
+                $value = -1;
+            }
+        }
+        elseif(is_numeric($content))
+        {
+            $value = $content;
+        }
+        else
+        {
+            $value = 50;
+        }
+
         return $value;
     }
 }

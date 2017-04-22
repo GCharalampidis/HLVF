@@ -91,7 +91,6 @@ class StudentQuestionsController extends Controller
         $unit = Unit::where('key',$unitkey)->first();
         $lecture = $unit->activeLecture();
 
-//        $lecture = Lecture::where('id',44)->first();
         return view('answer.questions.index', compact('lecture'));
     }
 

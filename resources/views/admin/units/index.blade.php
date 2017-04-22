@@ -19,7 +19,9 @@
                 <th>Title</th>
                 <th>Semester</th>
                 <th>Year</th>
+                <th>Students</th>
                 <th>Lectures</th>
+                <th>Active Lecture</th>
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Actions</th>
@@ -33,7 +35,10 @@
                     <td><a href="{{route('admin.units.show', $unit->id)}}">{{$unit->name}}</a></td>
                     <td>{{$unit->semester}}</td>
                     <td>{{$unit->year}}</td>
+                    <td>{{$unit->studentnumber}}</td>
                     <td>{{$unit->lecturesCount()}}</td>
+                    {{--vvvvvv CHANGE TO NAME--}}
+                    <td>@if($unit->lecturesCount() > 0){{$unit->activeLecture()->id}} @else No Active Lecture @endif</td>
                     <td>{{$unit->created_at->diffForHumans()}}</td>
                     <td>{{$unit->updated_at->diffForHumans()}}</td>
                     <td>

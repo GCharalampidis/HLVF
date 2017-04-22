@@ -68,28 +68,4 @@
                             {{--<a href="{{route('staff.create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>--}}
                         {{--@endif--}}
 
-
-
-
-
-
-                        <script>
-
-                        </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection

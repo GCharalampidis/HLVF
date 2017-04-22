@@ -26,31 +26,31 @@ class Lecture extends Model
         return Question::where(['lecture_id' => $this->id])->where(['active' => 1])->count();
     }
 
-    public function avgScores()
-    {
-        if($this->questionsCount() > 0)
-        {
-            $answersum = 0;
-            $count = 0;
-
-            foreach($this->questions as $question)
-            {
-                foreach($question->answers as $answer)
-                {
-                    $answersum = $answersum + $answer->toValue();
-                    $count++;
-                }
-            }
-
-            $unitavg = $answersum/$count;
-        }
-        else
-        {
-            $unitavg = 0;
-        }
-
-        return $unitavg;
-    }
+//    public function avgScores()
+//    {
+//        if($this->questionsCount() > 0)
+//        {
+//            $answersum = 0;
+//            $count = 0;
+//
+//            foreach($this->questions as $question)
+//            {
+//                foreach($question->answers as $answer)
+//                {
+//                    $answersum = $answersum + $answer->toValue();
+//                    $count++;
+//                }
+//            }
+//
+//            $unitavg = $answersum/$count;
+//        }
+//        else
+//        {
+//            $unitavg = 0;
+//        }
+//
+//        return $unitavg;
+//    }
 
 
 }

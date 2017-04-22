@@ -9,13 +9,15 @@
             <strong>{{$unit->name}}:</strong>
 
             <br/>
-            @foreach($unit->questions as $question)
-                @foreach($question->answers as $answer)
-                    {{$answer->toValue()}}
-                @endforeach
+            @foreach($unit->lectures as $lecture)
+                Lecture #{{$lecture->id}} Average: {{$lecture->average}}
+                {{--@foreach($lecture->questions as $question)--}}
+                    {{--{{$question->average}}--}}
+                {{--@endforeach--}}
+                <br/>
             @endforeach
-            <br/><strong>Average: </strong>
-        {{$unit->avgScores()}}
+
+
         @endforeach
 
 

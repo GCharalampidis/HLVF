@@ -6,68 +6,63 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">Questions for {{$lecture->unit->name}} (<a target="_blank" href="{{route('staff.show', $lecture->unit->user->id )}}">{{$lecture->unit->user->name}})</a></div>
-                        <div class="panel-body">
-                            @if($lecture->questionsCount() > 0)
+                    <div class="panel-body">
+                        @if($lecture->questionsCount() > 0)
 
-                                <?php $activequestions = $lecture->questionsCount(); $i = 1; ?>
+                            <?php $activequestions = $lecture->questionsCount(); $i = 1; ?>
 
-                                {!! Form::open(['method'=>'POST', 'action'=>'AnswerController@store']) !!}
+                            {!! Form::open(['method'=>'POST', 'action'=>'AnswerController@store']) !!}
+                            <input type="hidden" id="currentqcounter" value=1>
 
-                                <input type="hidden" id="currentqcounter" value=1>
-
-                                    @foreach($lecture->questions as $question)
+                                @foreach($lecture->questions as $question)
                                         @if($question->active == 1)
                                             <div id="question_{{$i}}" @if ($i == 1) style="display: block;" @else style="display: none;" @endif>
-                                               <i>Question {{$i}} of {{$activequestions}}</i> <br/><br/>
+                                            <i>Question {{$i}} of {{$activequestions}}</i><br/><br/>
 
-                                                <center><h3>{{$question->text}}</h3>
-                                            @if($question->question_type == 1)
+                                            <center>
+                                                <h3>{{$question->text}}</h3>
+                                                @if($question->question_type == 1)
 
-                                                <label for="content"><i class="fa fa-smile-o fa-3x"></i> </label>
-                                                {!! Form::radio('content[]', ':)', true) !!}&nbsp;&nbsp;
-                                                <label for="content"><i class="fa fa-meh-o fa-3x"></i> </label>
-                                                {!! Form::radio('content[]', ':|') !!}&nbsp;&nbsp;
-                                                <label for="content"><i class="fa fa-frown-o fa-3x"></i></label>
-                                                {!! Form::radio('content[]', ':(') !!}<br/>
+                                                    <label for="content"><i class="fa fa-smile-o fa-3x"></i> </label>
+                                                    {!! Form::radio('content[]', ':)', true) !!}&nbsp;&nbsp;
+                                                    <label for="content"><i class="fa fa-meh-o fa-3x"></i> </label>
+                                                    {!! Form::radio('content[]', ':|') !!}&nbsp;&nbsp;
+                                                    <label for="content"><i class="fa fa-frown-o fa-3x"></i></label>
+                                                    {!! Form::radio('content[]', ':(') !!}<br/>
 
-                                            @elseif($question->question_type == 2)
+                                                @elseif($question->question_type == 2)
 
-                                                <input id="slider" name="content[]" type="range" min="0" max="100"  onchange="printValue('slider','textbox')" />
-                                                <br/>
-                                                        <input id="textbox" type="text" size="5"/>
-                                                <br/>
+                                                    <input id="slider" name="content[]" type="range" min="0" max="100"  onchange="printValue('slider','textbox')" />
+                                                    <br/>
+                                                    <input id="textbox" type="text" size="5"/>
+                                                    <br/>
 
-                                            @elseif($question->question_type == 3)
+                                                @elseif($question->question_type == 3)
 
-                                                {!! Form::text('content[]', null, ['class'=>'form-control']) !!}
-
-                                            @endif
-                                            @if($i == $activequestions)
-                                                <br/>
-                                                @if($i != 1)
-                                                    <button type="button" class="btn btn-primary" onclick="previousQuestion()">Back</button>
+                                                    {!! Form::text('content[]', null, ['class'=>'form-control']) !!}
                                                 @endif
-                                                {!! Form::hidden('id', $lecture->id) !!}
-                                                {!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
-                                                {!! Form::close()!!}
-
-                                            @else
-                                                <br/>
+                                                @if($i == $activequestions)
+                                                    <br/>
                                                     @if($i != 1)
                                                         <button type="button" class="btn btn-primary" onclick="previousQuestion()">Back</button>
                                                     @endif
-                                                <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
-                                            @endif
-                                                </center></div>
-                                            <?php $i++; ?>
-                                        @endif
-                                    @endforeach
+                                                    {!! Form::hidden('id', $lecture->id) !!}
+                                                    {!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
+                                                    {!! Form::close()!!}
+                                                @else
+                                                    <br/>
+                                                    @if($i != 1)
+                                                        <button type="button" class="btn btn-primary" onclick="previousQuestion()">Back</button>
+                                                    @endif
+                                                    <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+                                                @endif
+                                            </center>
+                                        </div>
+                                        <?php $i++; ?>
+                                    @endif
 
 
-
-
-
-
+                            @endforeach
                         @else
                             There are no questions for this lecture.
                         @endif

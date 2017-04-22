@@ -51,19 +51,23 @@
     {{--</div>--}}
 
     <div style="display: flex;">
-        <ul id="left" style="width: 250px; height: 250px; background-color: #f0f8d1; border: 2px solid black; margin-right: 1em;">
+        <ul id="left" style="width: 250px; height: 350px; background-color: #f0f8d1; margin: 5px;  border-radius: 25px;
+    border: 2px solid #000000; margin-right: 1em; list-style-type: none;">
             Active:
             @foreach($lecture->questions as $question)
                 @if($question->active == 1)
-                    <li data-id="{{$question->id}}" style="background-color: #eaf7ed; margin: 5px; border: 1px solid black; box-shadow: 3px 5px 5px #888888;">{{$question->text}}</li>
+                    <li data-id="{{$question->id}}" style="background-color: #eaf7ed; margin: 5px;  border-radius: 25px;
+    border: 2px solid #73AD21; box-shadow: 3px 5px 5px #888888;"><p style="margin: 5px">{{$question->text}}</p></li>
                 @endif
             @endforeach
         </ul>
-        <ul id="right" style="width: 250px; height: 250px; background-color: #f0f8d1; border: 2px solid #000000; margin-right: 1em;">
+        <ul id="right" style="width: 250px; height: 350px; background-color: #f0f8d1; margin: 5px;  border-radius: 25px;
+    border: 2px solid #000000; margin-right: 1em; list-style-type: none;">
             Inactive:
             @foreach($lecture->questions as $question)
                 @if($question->active == 0)
-                    <li data-id="{{$question->id}}" style="background-color: #eaf7ed; margin: 5px; border: 1px solid; box-shadow: 3px 5px 5px #888888;">{{$question->text}}</li>
+                    <li data-id="{{$question->id}}" style="background-color: #eaf7ed; margin: 5px; border-radius: 25px;
+    border: 2px solid #73AD21; box-shadow: 3px 5px 5px #888888;"><p style="margin: 5px">{{$question->text}}</p></li>
                 @endif
             @endforeach
         </ul>
