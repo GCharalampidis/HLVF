@@ -38,7 +38,7 @@
                     <td>{{$unit->studentnumber}}</td>
                     <td>{{$unit->lecturesCount()}}</td>
                     {{--vvvvvv CHANGE TO NAME--}}
-                    <td>@if($unit->lecturesCount() > 0){{$unit->activeLecture()->id}} @else No Active Lecture @endif</td>
+                    <td>@if($unit->lecturesCount() > 0){{$unit->activeLecture()->name}} @else No Active Lecture @endif</td>
                     <td>{{$unit->created_at->diffForHumans()}}</td>
                     <td>{{$unit->updated_at->diffForHumans()}}</td>
                     <td>

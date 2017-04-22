@@ -41,7 +41,10 @@
                                                             <div id="mouth" class="straight"></div>
                                                         </div>
                                                     </div>
-                                                    <div id="slider"></div>
+                                                    <div style="width: 20em;" id="slider"></div>
+
+                                                        <input type="hidden" id="slidervalue" name="content[]" value=-1 />
+
 
                                                 @elseif($question->question_type == 3)
 
@@ -98,6 +101,10 @@
             document.getElementById('question_' + i).style.display = 'none';
             x.style.display = 'block';
             document.getElementById('currentqcounter').value = next;
+
+            var svalue = $( "#slider" ).slider( "option", "value" );
+            $('#slidervalue').val(svalue);
+
         }
     </script>
     <script>
