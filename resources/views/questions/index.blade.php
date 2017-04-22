@@ -60,27 +60,29 @@
     {{--</div>--}}
 
     <div style="display: flex;">
-        <ul id="left" style="cursor: move; min-width: 250px; min-height: 200px; max-width:300px; background-color: #f0f8d1; margin: 5px;  border-radius: 25px;
+        <ul id="left" style="min-width: 250px; min-height: 200px; max-width:300px; background-color: #f0f8d1; margin: 5px;  border-radius: 25px;
     border: 2px solid #000000; margin-right: 1em; list-style-type: none;">
             Active:
             @foreach($lecture->questions as $question)
                 @if($question->active == 1)
-                    <li data-id="{{$question->id}}" style="background-color: #eaf7ed; margin: 5px;  border-radius: 25px;
-    border: 2px solid #73AD21; box-shadow: 3px 5px 5px #888888;"><p style="margin: 5px">{{$question->text}}</p></li>
+                    <li data-id="{{$question->id}}" style="cursor: move; background-color: #eaf7ed; margin: 5px; padding: 5px;  border-radius: 25px;
+    border: 2px solid #000000; box-shadow: 3px 5px 5px #888888;"><p style="margin: 5px">{{$question->text}}</p></li>
                 @endif
             @endforeach
         </ul>
-        <ul id="right" style="cursor: move; min-width: 250px; min-height: 200px; max-width:300px; background-color: #ffbeae; margin: 5px;  border-radius: 25px;
+        <ul id="right" style="min-width: 250px; min-height: 200px; max-width:300px; background-color: #ffe7e0; margin: 5px;  border-radius: 25px;
     border: 2px solid #000000; margin-right: 1em; list-style-type: none;">
             Inactive:
             @foreach($lecture->questions as $question)
                 @if($question->active == 0)
-                    <li data-id="{{$question->id}}" style="background-color: #eaf7ed; margin: 5px; border-radius: 25px;
-    border: 2px solid #73AD21; box-shadow: 3px 5px 5px #888888;"><p style="margin: 5px">{{$question->text}}</p></li>
+                    <li data-id="{{$question->id}}" style="cursor: move; background-color: #eaf7ed; margin: 5px; border-radius: 25px;
+    border: 2px solid #000000; box-shadow: 3px 5px 5px #888888;"><p style="margin: 5px">{{$question->text}}</p></li>
                 @endif
             @endforeach
         </ul>
     </div>
+
+    
     <button type="button" class="btn btn-primary" onclick="saveQuestions()">Save</button>
     <a class='btn btn-success' href="{{url('/lecture/'.$lecture->id.'/questions/create')}}">Create</a>
 
