@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Hasta La Vista Forms</title>
+    <title>HLVF @if (!Auth::guest()) - {{\Illuminate\Support\Facades\Auth::user()->name}} @endif</title>
 
     {{--<!-- Fonts -->--}}
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">--}}
@@ -18,60 +18,6 @@
 
 
     <style>
-        #face {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            border: 3px solid black;
-            border-radius: 100px;
-            margin: 20px auto;
-            background-color: yellow;
-        }
-
-        #face:before, #face:after {
-            position: absolute;
-            content: "";
-            width: 10px;
-            height: 10px;
-            top: 30px;
-            border-radius: 10px;
-            background: black;
-        }
-        #face:before {
-            left: 30px;
-        }
-        #face:after {
-            left: 60px;
-        }
-
-        #mouth-box {
-            width: 60px;
-            height: 20px;
-            left: 2px;
-            top: 60px;
-            overflow: hidden;
-            background: white;
-            position: relative;
-            background-color: yellow;
-        }
-
-        #mouth {
-            width: 60px;
-            height: 60px;
-            border-radius: 30px;
-            border: 3px solid black;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        #mouth.straight {
-            height: 0px !important;
-            top: 7px !important;
-            border-width: 2px;
-            bottom: auto !important;
-        }
-
         body {
             font-family: 'Lato';
         }

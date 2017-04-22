@@ -10,6 +10,7 @@
                         <div class="list-group">
 
                             <li class="list-group-item"><i class="fa fa fa-calendar fa-lg"></i>&nbsp {{$unit->semester}} {{$unit->year}}</li>
+                            <li class="list-group-item"><i class="fa fa fa-users fa-lg"></i>&nbsp {{$unit->studentnumber}}</li>
                             <li class="list-group-item"><i class="fa fa-key fa-lg"></i>&nbsp; {{$unit->key}}</li>
                             <div style="padding-top: 10px">
                                 <a class='btn btn-primary' href="{{route('admin.units.index')}}">Back</a>

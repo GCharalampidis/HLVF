@@ -1,8 +1,9 @@
+//Dragula
 $(function () {
     dragula([document.getElementById('left'), document.getElementById('right')]);
 });
 
-
+//Smiley Slider
 $(function () {
 var newWidth,
     mouth = $("#mouth");
@@ -10,7 +11,7 @@ var newWidth,
 $( "#slider" ).slider({
     slide: function(event, ui) {
 
-        if (ui.value > 51 ) {
+        if (ui.value > 54 ) {
 
             mouth.css({ bottom: 0, top: "auto" });
 
@@ -24,7 +25,7 @@ $( "#slider" ).slider({
             })
                 .removeClass("straight");
 
-        } else if ((ui.value > 48) && (ui.value < 52)) {
+        } else if ((ui.value > 44) && (ui.value < 55)) {
 
             mouth.addClass("straight");
 
@@ -46,5 +47,30 @@ $( "#slider" ).slider({
 
     },
     value: 50
+    });
+});
+
+//Question types preview
+$(document).ready(function(){
+    $('#question_type').on('change', function() {
+        if ( this.value == '1')
+        //.....................^.......
+        {
+            $("#q1").show();
+            $("#q2").hide();
+            $("#q3").hide();
+        }
+        else if( this.value == '2')
+        {
+            $("#q1").hide();
+            $("#q2").show();
+            $("#q3").hide();
+        }
+        else
+        {
+            $("#q1").hide();
+            $("#q2").hide();
+            $("#q3").show();
+        }
     });
 });

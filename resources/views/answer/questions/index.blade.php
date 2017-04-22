@@ -31,20 +31,13 @@
 
                                                 @elseif($question->question_type == 2)
 
-                                                    {{--<input id="slider" name="content[]" type="range" min="0" max="100"  onchange="printValue('slider','textbox')" />--}}
-                                                    {{--<br/>--}}
-                                                    {{--<input id="textbox" type="text" size="5"/>--}}
-                                                    {{--<br/>--}}
-
                                                     <div id="face">
                                                         <div id="mouth-box">
                                                             <div id="mouth" class="straight"></div>
                                                         </div>
                                                     </div>
                                                     <div style="width: 20em;" id="slider"></div>
-
-                                                        <input type="hidden" id="slidervalue" name="content[]" value=-1 />
-
+                                                    <input type="hidden" id="slidervalue" name="content[]" value=-1 />
 
                                                 @elseif($question->question_type == 3)
 
