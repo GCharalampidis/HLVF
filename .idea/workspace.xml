@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77adac6f-1dd0-4a61-9848-8b9b1e2f8dd9" name="Default" comment="Added attribute name to lectures, SQL queries are now used to find a unit's active lecture.">
+    <list default="true" id="77adac6f-1dd0-4a61-9848-8b9b1e2f8dd9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cms.iws" />
@@ -370,7 +370,7 @@
       <workItem from="1490653587307" duration="96000" />
       <workItem from="1492684292344" duration="28381000" />
       <workItem from="1492768255508" duration="35261000" />
-      <workItem from="1492850677783" duration="19167000" />
+      <workItem from="1492850677783" duration="19222000" />
     </task>
     <task id="LOCAL-00001" summary="Removed Answers, Added Lectures">
       <created>1492700203881</created>
@@ -449,11 +449,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492873502845</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added attribute name to lectures, SQL queries are now used to find a unit's active lecture.">
+      <created>1492873529329</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1492873529329</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259850000" />
+    <option name="totallyTimeSpent" value="259905000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
