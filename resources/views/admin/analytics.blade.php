@@ -5,12 +5,12 @@
     <h2>Your Units</h2>
 
         @foreach($units as $unit)
-            <br/><br/>
-            <strong>{{$unit->name}}:</strong>
+            <h3><b>{{$unit->name}}:</b></h3>
 
-            <br/>
             @foreach($unit->lectures as $lecture)
-                Lecture #{{$lecture->id}} Average: {{$lecture->average}}
+                <b><u>{{$lecture->name}}</u></b>
+                <b>Answers:</b> {{$lecture->answers}} @if($lecture->unit->studentnumber > 0)({{round($lecture->answers/$lecture->unit->studentnumber*100, 2)}}%)@endif
+                <b>Average:</b> {{$lecture->average}}
                 {{--@foreach($lecture->questions as $question)--}}
                     {{--{{$question->average}}--}}
                 {{--@endforeach--}}

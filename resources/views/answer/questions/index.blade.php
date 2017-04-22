@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Questions for {{$lecture->unit->name}} (<a target="_blank" href="{{route('staff.show', $lecture->unit->user->id )}}">{{$lecture->unit->user->name}})</a></div>
+                    <div class="panel-heading">Questions for {{$lecture->name}} of {{$lecture->unit->name}} (<a target="_blank" href="{{route('staff.show', $lecture->unit->user->id )}}">{{$lecture->unit->user->name}})</a></div>
                     <div class="panel-body">
                         @if($lecture->questionsCount() > 0)
 

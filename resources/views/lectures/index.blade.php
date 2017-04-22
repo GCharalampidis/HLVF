@@ -4,6 +4,15 @@
 
 
                         <h1 class="page-header">Lectures of {{$unit->name}}</h1>
+                        @if(Session::has('deleted_lecture'))
+                            <div class="alert alert-success">{{session('deleted_lecture')}}</div>
+                        @endif
+                        @if(Session::has('created_lecture'))
+                            <div class="alert alert-success">{{session('created_lecture')}}</div>
+                        @endif
+                        {{--@if(Session::has('edited_lecture'))--}}
+                            {{--<div class="alert alert-success">{{session('edited_lecture')}}</div>--}}
+                        {{--@endif--}}
                         @if(sizeof($unit->lectures) > 0)
                             <table class="table">
                                 <thead>
@@ -26,11 +35,15 @@
 
                                     <tr>
                                         {{--<td><a href="{{route('staff.show', $user->id)}}">{{$user->name}}</a></td>--}}
-                                        <td><a href="{{route('lectures.show', $lecture->id)}}">Lecture #{{$count}} @if($unit->activeLecture()->id === $lecture->id) <i class="fa fa-check" aria-hidden="true"></i> @endif</a></td>
+                                        <td><a href="{{route('lectures.show', $lecture->id)}}">{{$lecture->name}} @if($unit->activeLecture()->id === $lecture->id) <i class="fa fa-check" aria-hidden="true"></i> @endif</a></td>
                                         <td>{{$lecture->date->diffForHumans()}} ({{$lecture->date->format('d-m-y H:i')}})</td>
                                         <td>{{$lecture->questionsCount()}}</td>
-                                        <td>{{$lecture->answers}}</td>
-                                        <td>{{$lecture->average}}</td>
+                                        <td>{{$lecture->answers}} @if($lecture->unit->studentnumber > 0)({{round($lecture->answers/$lecture->unit->studentnumber*100, 2)}}%)@endif</td>
+                                        <td><p style="color:
+                                            @if($lecture->average < 50)red
+                                            @elseif($lecture->average < 75)#3498db;
+                                            @else lawngreen
+                                            @endif;">{{$lecture->average}}</p></td>
                                         <td>{{$lecture->created_at->diffForHumans()}}</td>
                                         <td>{{$lecture->updated_at->diffForHumans()}}</td>
                                         <td>
@@ -61,6 +74,7 @@
                             There are no lectures for this unit yet!
                         @endif
                         <div style="padding-top: 10px">
+                            <a class='btn btn-primary' href="{{url('admin/units/'.$unit->id)}}">Back</a>
                             <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/create')}}">Create</a>
                             <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/masscreate')}}">Mass Create</a>
                         </div>

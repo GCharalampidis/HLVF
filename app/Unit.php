@@ -30,26 +30,37 @@ class Unit extends Model
     public function activeLecture()
     {
         $now = Carbon::now();
+//
+//        $mindiff = $this->lectures()->first()->date->diffInHours($now, false);
+//        $minid = $this->lectures()->first()->id;
+//
+//        foreach ($this->lectures as $lecture)
+//        {
+//           if($lecture->date->lte($now))
+//           {
+//                if($lecture->date->diffInHours($now, false) > $mindiff)
+//                {
+//                    $mindiff = $lecture->date->diffInHours($now, false);
+//                    $minid = $lecture->id;
+//
+//                }
+//
+//           }
+//        }
+//
+//        $lecture = Lecture::find($minid);
+//        return $lecture;
 
-        $mindiff = $this->lectures()->first()->date->diffInHours($now, false);
-        $minid = $this->lectures()->first()->id;
+        $lectures = Lecture::where(['unit_id' => $this->id])->where('date', '<', $now)->orderBy('date', 'desc')->first();
 
-        foreach ($this->lectures as $lecture)
+        if ($lectures)
         {
-           if($lecture->date->lte($now))
-           {
-                if($lecture->date->diffInHours($now, false) < $mindiff)
-                {
-                    $mindiff = $lecture->date->diffInHours($now, false);
-                    $minid = $lecture->id;
-
-                }
-
-           }
+            return $lectures;
         }
-
-        $lecture = Lecture::find($minid);
-        return $lecture;
+        else
+        {
+            return Lecture::where(['unit_id' => $this->id])->orderBy('date', 'asc')->first();
+        }
 
     }
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lecture extends Model
 {
 
-    protected $fillable = ['average', 'date', 'unit_id'];
+    protected $fillable = ['name','average', 'date', 'unit_id'];
 
     protected $dates = ['date'];
 

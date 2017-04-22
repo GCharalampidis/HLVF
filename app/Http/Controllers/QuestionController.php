@@ -50,6 +50,8 @@ class QuestionController extends Controller
 
         Question::create($input);
 
+        Session::flash('created_question', 'Question has been created.');
+
         return redirect('/lecture/'.$request->lecture_id.'/questions');
     }
 
@@ -88,7 +90,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Session::flash('edited_question', 'Question has been edited.');
     }
 
     /**
@@ -103,7 +105,7 @@ class QuestionController extends Controller
 
         $question->delete();
 
-        Session::flash('deleted_question', 'The lecture has been deleted.');
+        Session::flash('deleted_question', 'Question has been deleted.');
 
         return redirect('/lecture/'.$question->lecture->id.'/questions');
     }

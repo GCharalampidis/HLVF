@@ -15,8 +15,9 @@ class CreateLecturesTable extends Migration
     {
         Schema::create('lectures', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->smallInteger('average');
-            $table->timestamp('date');
+            $table->dateTimeTz('date');
             $table->integer('answers');
             $table->integer('unit_id')->unsigned()->nullable()->index();
             $table->timestamps();

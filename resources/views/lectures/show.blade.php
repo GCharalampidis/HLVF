@@ -6,10 +6,10 @@
             <div class="col-md-8 col-md-offset-2" style="padding-top: 20px">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h1 class="page-header">Lecture at {{$lecture->date->format('l jS \\of F Y')}}</h1>
+                        <h1 class="page-header">{{$lecture->name}}</h1>
                         <div class="list-group">
 
-                            <li class="list-group-item"><i class="fa fa fa-calendar fa-lg"></i>&nbsp {{$lecture->date}}</li>
+                            <li class="list-group-item"><i class="fa fa fa-calendar fa-lg"></i>&nbsp {{$lecture->date}} ({{$lecture->date->format('l jS \\of F Y')}})</li>
                             <li class="list-group-item"><i class="fa fa fa-rss fa-lg"></i>&nbsp Average Mark: {{$lecture->average}}</li>
                             <div style="padding-top: 10px">
                                 <a class='btn btn-primary' href="{{URL::previous()}}">Back</a>

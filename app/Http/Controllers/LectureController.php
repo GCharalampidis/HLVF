@@ -55,6 +55,8 @@ class LectureController extends Controller
 
         Lecture::create($input);
 
+        Session::flash('created_lecture', 'Lecture has been created.');
+
         return redirect('/unit/'.$request->unit_id.'/lectures');
     }
 
@@ -153,10 +155,11 @@ class LectureController extends Controller
         $date = $this->getDate($sdate.' '.$stime.':00');
         $frequency = $request->get('frequency');
 
-        for($i = 0; $i < $nlectures; $i++)
+        for($i = 1; $i <= $nlectures; $i++)
         {
             $date = $date->addWeeks($frequency);
             $input['date'] = $date;
+            $input['name'] = "Lecture #".$i;
             Lecture::create($input);
         }
 
