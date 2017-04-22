@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77adac6f-1dd0-4a61-9848-8b9b1e2f8dd9" name="Default" comment="Added basic analytics, basic answer-to-value calculation.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/cms.iml" afterPath="$PROJECT_DIR$/.idea/cms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+    <list default="true" id="77adac6f-1dd0-4a61-9848-8b9b1e2f8dd9" name="Default" comment="Added attribute name to lectures, SQL queries are now used to find a unit's active lecture.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/LectureController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/LectureController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Lecture.php" afterPath="$PROJECT_DIR$/app/Lecture.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Unit.php" afterPath="$PROJECT_DIR$/app/Unit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_04_20_113854_create_lectures_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_04_20_113854_create_lectures_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/analytics.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/analytics.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/answer/questions/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/answer/questions/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/lectures/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/lectures/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/lectures/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/lectures/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/lectures/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/lectures/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/questions/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/questions/index.blade.php" />
     </list>
     <ignored path="cms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -383,7 +370,7 @@
       <workItem from="1490653587307" duration="96000" />
       <workItem from="1492684292344" duration="28381000" />
       <workItem from="1492768255508" duration="35261000" />
-      <workItem from="1492850677783" duration="19136000" />
+      <workItem from="1492850677783" duration="19167000" />
     </task>
     <task id="LOCAL-00001" summary="Removed Answers, Added Lectures">
       <created>1492700203881</created>
@@ -455,11 +442,18 @@
       <option name="project" value="LOCAL" />
       <updated>1492857319525</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added attribute name to lectures, SQL queries are now used to find a unit's active lecture.">
+      <created>1492873502845</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1492873502845</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259819000" />
+    <option name="totallyTimeSpent" value="259850000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -514,7 +508,8 @@
     <MESSAGE value="Made answer page more mobile friendly." />
     <MESSAGE value="Added primitive dragula interface for lecture questions." />
     <MESSAGE value="Added basic analytics, basic answer-to-value calculation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added basic analytics, basic answer-to-value calculation." />
+    <MESSAGE value="Added attribute name to lectures, SQL queries are now used to find a unit's active lecture." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added attribute name to lectures, SQL queries are now used to find a unit's active lecture." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
