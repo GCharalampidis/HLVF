@@ -18,6 +18,8 @@ var paths = {
     'bootstrap': 'node_modules/bootstrap/dist',
     'fontawesome': 'node_modules/font-awesome',
     'dragula': 'node_modules/dragula/dist',
+    'morrisjs': 'node_modules/morris.js',
+    'raphael': 'node_modules/raphael',
     'assets': 'resources/assets'
 };
 
@@ -31,6 +33,7 @@ elixir(function(mix) {
             paths.dragula + "/dragula.min.css",
             paths.fontawesome + "/css/font-awesome.min.css",
             paths.jqueryui + "/jquery-ui.min.css",
+            paths.morrisjs + "/morris.css",
             paths.assets + "/css/bootstrap2.min.css",
             paths.assets + "/css/metisMenu.css",
             paths.assets + "/css/sb-admin-2.css",
@@ -44,6 +47,8 @@ elixir(function(mix) {
             paths.jqueryuitp + "/jquery.ui.touch-punch.min.js",
             paths.bootstrap + "/js/bootstrap.min.js",
             paths.dragula + "/dragula.min.js",
+            paths.raphael + "/raphael.min.js",
+            paths.morrisjs + "/morris.js",
             paths.assets + "/js/metisMenu.js",
             paths.assets + "/js/sb-admin-2.js",
             paths.assets + "/js/scripts.js"
