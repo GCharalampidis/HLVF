@@ -24,7 +24,7 @@
                             {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley slider', 3 => 'Free text'), 1, ['class'=>'form-control']) !!}
                             <br/>
 
-                            <div style="border-radius: 25px; border: 2px solid black; background-color: oldlace; display: block; text-align: center;" id="q1">
+                            <div style="border-radius: 25px; border: 2px solid black; background-color: #32363b; display: block; text-align: center;" id="q1">
 
                                 <h3>Your Question</h3>
                                 <label for="test"><i class="fa fa-smile-o fa-3x"></i> </label>
@@ -35,12 +35,12 @@
                                 {!! Form::radio('test', 'test') !!}<br/>
 
                             </div>
-                            <div style="border-radius: 25px; border: 2px solid black; background-color: oldlace; display: none; text-align: center;" id="q2">
+                            <div style="border-radius: 25px; border: 2px solid black; background-color: #32363b; display: none; text-align: center;" id="q2">
                                 <h3>Your Question</h3>
                                 <img src="{{asset('images/smiley.png')}}" alt="smiley slider preview">
                             </div>
 
-                            <div style="border-radius: 25px; border: 2px solid black; background-color: oldlace; display: none; text-align: center; padding: 10px;" id="q3">
+                            <div style="border-radius: 25px; border: 2px solid black; background-color: #32363b; display: none; text-align: center; padding: 10px;" id="q3">
                                 <h3>Your Question</h3>
                                     {!! Form::text('test', null, ['class'=>'form-control']) !!}
                             </div>

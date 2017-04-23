@@ -23,7 +23,7 @@
         position: inherit;
         margin: 0 0 0 250px;
         padding: 0 30px;
-        border-left: 1px solid #e7e7e7;
+        border-left: 1px solid #000000;
     }
 }
 
@@ -99,7 +99,7 @@
 }
 
 .sidebar ul li a.active {
-    background-color: #201f4a;
+    background-color: #272822;
 }
 
 .sidebar .arrow {

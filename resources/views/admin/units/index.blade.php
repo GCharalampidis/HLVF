@@ -64,7 +64,9 @@
          @endif
         </tbody>
     </table>
-    <a href="{{route('admin.units.create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>
+    <a class='btn btn-primary' href="{{url('admin/')}}">Back</a>
+    <a class='btn btn-success' href="{{route('admin.units.create')}}">Create</a>
+
 
 
 

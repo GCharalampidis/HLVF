@@ -74,14 +74,22 @@ class AnswerController extends Controller
             $count++;
         }
 
-        $average = $sum/$count;
+        $questionsaverage = $sum/$count;
 
         $lecture = Lecture::find($request->get('id'));
 
-        $totalscore = $lecture->average * $lecture->answers;
-        $totalscore += $average;
+//        Plebian way to add a mark to lectures current average
+//        $totalscore = $lecture->average * $lecture->answers;
+//        $totalscore += $questionsaverage;
+//        $lecture->answers += 1;
+//        $lecture->average = $totalscore / $lecture->answers;
+
+        $n = $lecture->answers;
+        $currentaverage = $lecture->average;
+
         $lecture->answers += 1;
-        $lecture->average = $totalscore / $lecture->answers;
+
+        $lecture->average = ($currentaverage*$n + $questionsaverage)/($n + 1); //Updating new average
 
 
 
@@ -166,7 +174,10 @@ class AnswerController extends Controller
         }
         else
         {
-            $value = 50;
+            if($content == 'a')
+                $value = 50;
+            else
+                $value = 100;
         }
 
         return $value;

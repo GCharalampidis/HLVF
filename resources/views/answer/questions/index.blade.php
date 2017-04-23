@@ -21,14 +21,14 @@
                                                 <center>
                                                 <h3>{{$question->text}}</h3>
                                                 @if($question->question_type == 1)
-
+                                                <fieldset id="group{{$i}}">
                                                     <label for="content"><i class="fa fa-smile-o fa-3x"></i> </label>
-                                                    {!! Form::radio('content[]', ':)', true) !!}&nbsp;&nbsp;
+                                                    {!! Form::radio('content[] '.'group'.$i, ':)', true) !!}&nbsp;&nbsp;
                                                     <label for="content"><i class="fa fa-meh-o fa-3x"></i> </label>
-                                                    {!! Form::radio('content[]', ':|') !!}&nbsp;&nbsp;
+                                                    {!! Form::radio('content[] '.'group'.$i, ':|') !!}&nbsp;&nbsp;
                                                     <label for="content"><i class="fa fa-frown-o fa-3x"></i></label>
-                                                    {!! Form::radio('content[]', ':(') !!}<br/>
-
+                                                    {!! Form::radio('content[] '.'group'.$i, ':(') !!}<br/>
+                                                </fieldset>
                                                 @elseif($question->question_type == 2)
 
                                                     <div id="face">
@@ -43,28 +43,28 @@
 
                                                     {!! Form::text('content[]', null, ['class'=>'form-control']) !!}
                                                 @endif
-                                                @if($i == $activequestions)
                                                     <br/>
-                                                    @if($i != 1)
-                                                        <button type="button" class="btn btn-primary" onclick="previousQuestion()">Back</button>
-                                                    @endif
-                                                    {!! Form::hidden('id', $lecture->id) !!}
-                                                    {!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
-                                                    {!! Form::close()!!}
-                                                @else
-                                                    <br/>
-                                                    @if($i != 1)
-                                                        <button type="button" class="btn btn-primary" onclick="previousQuestion()">Back</button>
-                                                    @endif
-                                                    <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+                                                @if($i != 1)
+                                                    <button type="button" class="btn btn-primary" onclick="previousQuestion()">Back</button>
                                                 @endif
+                                                <button type="button" class="btn btn-primary" onclick="nextQuestion()">Next</button>
+
                                             </center>
                                         </div>
                                         <?php $i++; ?>
+
                                     @endif
 
 
                             @endforeach
+                                <div id="question_{{$activequestions+1}}" style="display: none; text-align: center;">
+                                    <h4 class="page-header"><i>You have completed this lecture's questions!</i></h4>
+                                    <br/>
+                                    <button type="button" class="btn btn-primary" onclick="previousQuestion()">Back</button>
+                                    {!! Form::hidden('id', $lecture->id) !!}
+                                    {!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
+                                    {!! Form::close()!!}
+                                </div>
                         @else
                             There are no questions for this lecture.
                         @endif
@@ -74,16 +74,6 @@
             </div>
         </div>
     </div>
-
-    {{--<script>--}}
-        {{--function printValue(sliderID, textbox) {--}}
-            {{--var x = document.getElementById(textbox);--}}
-            {{--var y = document.getElementById(sliderID);--}}
-            {{--x.value = y.value;--}}
-        {{--}--}}
-
-        {{--window.onload = function() { printValue('slider', 'textbox'); }--}}
-    {{--</script>--}}
 
     <script>
         function nextQuestion()
@@ -97,6 +87,7 @@
 
             var svalue = $( "#slider" ).slider( "option", "value" );
             $('#slidervalue').val(svalue);
+
 
         }
     </script>
