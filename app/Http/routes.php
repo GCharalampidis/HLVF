@@ -32,8 +32,6 @@ Route::post('/a1d24fg41A', 'UnitController@checkKey');
 Route::group(['middlewareGroups'=>'web','auth.basic'], function()
 {
 
-
-
     Route::resource('/admin/analytics', 'AnalyticsController');
 
     Route::get('admin/units/{user}/delete', ['as' => 'admin.units.delete', 'uses' => 'UnitController@destroy']);
@@ -43,8 +41,6 @@ Route::group(['middlewareGroups'=>'web','auth.basic'], function()
     Route::resource('/staff', 'UserController');
 
     Route::resource('/answerquestions', 'AnswerController');
-
-//    Route::get('/createquestion', 'QuestionController@create');
 
     Route::get('/unit/{id}/lectures', ['as' => 'lectures.testindex', 'uses' => 'LectureController@testIndex']);
     Route::get('/unit/{id}/lectures/create', ['as' => 'lectures.testcreate', 'uses' => 'LectureController@testCreate']);

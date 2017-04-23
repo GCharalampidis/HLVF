@@ -90,7 +90,13 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $question = Question::findOrFail($id);
+
+        $question->update($request->all());
+
         Session::flash('edited_question', 'Question has been edited.');
+
+        return redirect('/lecture/'.$question->lecture->id.'/questions');
     }
 
     /**

@@ -97,7 +97,16 @@ class LectureController extends Controller
     {
         $lecture = Lecture::findOrFail($id);
 
-        $lecture->update($request->all());
+        $input = $request->all();
+
+        $sdate = $request->get('date');
+        $stime = $request->get('time');
+        $date = $this->getDate($sdate.' '.$stime.':00');
+
+        $input['date'] = $date;
+
+
+        $lecture->update($input);
 
         Session::flash('edited_lecture', 'The lecture has been edited.');
 
@@ -163,8 +172,7 @@ class LectureController extends Controller
             Lecture::create($input);
         }
 
-
-
+        Session::flash('created_lectures', --$i.' lectures have been created.');
 
         return redirect('/unit/'.$request->unit_id.'/lectures');
     }

@@ -21,6 +21,13 @@ class Lecture extends Model
         return $this->hasMany('App\Question');
     }
 
+    public function hasSliderQuestion()
+    {
+        $count = Question::where(['lecture_id' => $this->id])->where(['active' => 1])->where(['question_type' => 2])->count();
+        if($count > 0) return true;
+        else return false;
+    }
+
     public function questionsCount()
     {
         return Question::where(['lecture_id' => $this->id])->where(['active' => 1])->count();

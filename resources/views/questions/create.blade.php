@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-5 col-md-offset-3">
                 <div class="panel-body">
                     <h1>Create Question for {{$lecture->name}}</h1>
 
@@ -21,7 +21,12 @@
                         <div class="form-group">
 
                             {!! Form::label('question_type', 'Type:') !!}
-                            {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley slider', 3 => 'Free text'), 1, ['class'=>'form-control']) !!}
+                            @if($lecture->hasSliderQuestion())
+                                {!! Form::select('question_type', array(1 => 'Smiley Faces', 3 => 'Free text'), 1, ['class'=>'form-control']) !!}
+                                <i>(Smiley slider option is disabled because you already have one active question which uses it).</i><br/>
+                            @else
+                                {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley slider', 3 => 'Free text'), 1, ['class'=>'form-control']) !!}
+                            @endif
                             <br/>
 
                             <div style="border-radius: 25px; border: 2px solid black; background-color: #32363b; display: block; text-align: center;" id="q1">
@@ -54,6 +59,7 @@
 
                         {!!  Form::hidden('lecture_id', $lecture->id) !!}
 
+                        <a class='btn btn-primary' href="{{URL::previous()}}">Back</a>
                         {!! Form::submit('Create Question', ['class'=>'btn btn-success']) !!}
 
                     {!! Form::close()!!}
