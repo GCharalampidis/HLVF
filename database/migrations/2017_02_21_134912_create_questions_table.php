@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->smallInteger('question_type');
             $table->boolean('active');
             $table->timestamps();
+            $table->foreign('lecture_id')->references('id')->on('lectures')->onDelete('cascade');
         });
     }
 

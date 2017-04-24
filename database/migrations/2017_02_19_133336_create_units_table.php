@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLecturesTable extends Migration
+class CreateUnitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateLecturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('lectures', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->increments('id');
+            $table->smallInteger('year');
+            $table->string('semester');
             $table->string('name');
-            $table->smallInteger('average');
-            $table->dateTimeTz('date');
-            $table->integer('answers');
-            $table->integer('unit_id')->unsigned()->nullable()->index();
+            $table->string('key')->unique();
+            $table->smallInteger('studentnumber');
+            $table->integer('user_id')->unsigned()->nullable()->index();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -31,6 +33,6 @@ class CreateLecturesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('lectures');
+        Schema::drop('units');
     }
 }
