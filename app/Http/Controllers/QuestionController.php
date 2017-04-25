@@ -16,6 +16,8 @@ class QuestionController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(['questionsAuth'], ['only' => ['destroy','update','show','destroy','edit']]);
+        $this->middleware(['lecturesAuth'], ['only' => ['testIndex','testCreate']]);
     }
 
     /**

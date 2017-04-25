@@ -15,6 +15,8 @@ class LectureController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(['lecturesAuth'], ['only' => ['destroy','update','show','destroy','edit']]);
+        $this->middleware(['myAuth'], ['only' => ['testIndex','testCreate','testMassCreate']]);
     }
 
     /**

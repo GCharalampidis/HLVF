@@ -29,29 +29,30 @@ Route::get('/enterkey', function ()
 
 Route::post('/a1d24fg41A', 'UnitController@checkKey');
 
-Route::group(['middlewareGroups'=>'web','auth.basic'], function()
+Route::group(['middlewareGroups'=>'web','auth'], function()
 {
 
     Route::resource('/admin/analytics', 'AnalyticsController');
 
-    Route::get('admin/units/{user}/delete', ['as' => 'admin.units.delete', 'uses' => 'UnitController@destroy']);
+    Route::get('admin/units/{units}/delete', ['as' => 'admin.units.delete', 'uses' => 'UnitController@destroy']);
     Route::resource('/admin/units', 'UnitController');
 
-    Route::get('staff/{user}/delete', ['as' => 'staff.delete', 'uses' => 'UserController@destroy']);
+    Route::get('staff/{id}/delete', ['as' => 'staff.delete', 'uses' => 'UserController@destroy']);
     Route::resource('/staff', 'UserController');
 
     Route::resource('/answerquestions', 'AnswerController');
 
-    Route::get('/unit/{id}/lectures', ['as' => 'lectures.testindex', 'uses' => 'LectureController@testIndex']);
-    Route::get('/unit/{id}/lectures/create', ['as' => 'lectures.testcreate', 'uses' => 'LectureController@testCreate']);
-    Route::get('/unit/{id}/lectures/masscreate', ['as' => 'lectures.testmasscreate', 'uses' => 'LectureController@testMassCreate']);
+    Route::get('/unit/{units}/lectures', ['as' => 'lectures.testindex', 'uses' => 'LectureController@testIndex']);
+    Route::get('/unit/{units}/lectures/create', ['as' => 'lectures.testcreate', 'uses' => 'LectureController@testCreate']);
+    Route::get('/unit/{units}/lectures/masscreate', ['as' => 'lectures.testmasscreate', 'uses' => 'LectureController@testMassCreate']);
     Route::post('/unit/lectures/massstore', ['as' => 'lectures.massstore', 'uses' => 'LectureController@massStore']);
-    Route::get('/lecture/{id}/delete', ['as' => 'lectures.delete', 'uses' => 'LectureController@destroy']);
+    Route::get('/lecture/{lectures}/delete', ['as' => 'lectures.delete', 'uses' => 'LectureController@destroy']);
     Route::resource('/lectures', 'LectureController');
 
-    Route::get('/lecture/{id}/questions', ['as' => 'questions.testindex', 'uses' => 'QuestionController@testIndex']);
-    Route::get('/lecture/{id}/questions/create', ['as' => 'questions.testcreate', 'uses' => 'QuestionController@testCreate']);
-    Route::get('/lecture/{id}/questions/delete', ['as' => 'questions.delete', 'uses' => 'QuestionController@destroy']);
+    Route::get('/lecture/{lectures}/questions', ['as' => 'questions.testindex', 'uses' => 'QuestionController@testIndex']);
+    Route::get('/lecture/{lectures}/questions/create', ['as' => 'questions.testcreate', 'uses' => 'QuestionController@testCreate']);
+    //This VVV is wrong. it should be '/questions/{questions}/delete' but it's too late to change it.
+    Route::get('/lecture/{questions}/questions/delete', ['as' => 'questions.delete', 'uses' => 'QuestionController@destroy']);
     Route::resource('/questions', 'QuestionController');
 
 

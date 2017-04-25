@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Error 404</title>
+    <title>403 Error</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,7 +40,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">Page not found</div>
+        <div class="title">Forbidden or No Permission to Access.</div>
     </div>
 </div>
 </body>
