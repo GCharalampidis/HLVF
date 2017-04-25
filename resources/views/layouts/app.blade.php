@@ -41,8 +41,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    HLV Forms
+                <a class="navbar-brand" style="padding: 0px;" href="{{ url('/') }}">
+                    <img style="height: 100%; padding: 4px 15px; width: auto;" src="{{asset('logo.png')}}" alt="logo">
                 </a>
             </div>
 

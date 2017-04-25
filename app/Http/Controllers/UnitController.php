@@ -15,7 +15,7 @@ class UnitController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth','myAuth'], ['except' => ['checkKey']]);
+        $this->middleware(['auth'], ['except' => ['checkKey']]);
         $this->middleware(['myAuth'], ['except' => ['checkKey','index','create','store']]);
 
     }
