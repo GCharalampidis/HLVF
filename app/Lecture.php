@@ -28,6 +28,11 @@ class Lecture extends Model
         else return false;
     }
 
+    public function studentPercentage()
+    {
+        return round($this->answers/$this->unit->studentnumber*100, 2);
+    }
+
     public function questionsCount()
     {
         return Question::where(['lecture_id' => $this->id])->where(['active' => 1])->count();

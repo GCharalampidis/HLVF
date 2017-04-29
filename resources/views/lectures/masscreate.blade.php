@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('lectures', '# of Lectures:') !!}
+                                {!! Form::label('lectures', 'Number of Lectures: (Max: 99)') !!}
                                 {!! Form::number('lectures', null, ['class'=>'form-control']) !!}
                             </div>
 
@@ -42,7 +42,7 @@
 
                             {{--Error Display--}}
                             @if(count($errors) > 0)
-
+                                <br/>
                                 <div class="alert alert-danger">
 
                                     <ul>

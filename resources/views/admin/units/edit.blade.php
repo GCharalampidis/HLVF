@@ -37,7 +37,7 @@
 
                     {{--Error Display--}}
                     @if(count($errors) > 0)
-
+                    <br/>
                         <div class="alert alert-danger">
 
                             <ul>

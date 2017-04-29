@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LectureRequest;
+use App\Http\Requests\MassLectureRequest;
 use App\Lecture;
 use App\Unit;
 use Carbon\Carbon;
@@ -45,7 +47,7 @@ class LectureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LectureRequest $request)
     {
         $input = $request->all();
 
@@ -95,7 +97,7 @@ class LectureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LectureRequest $request, $id)
     {
         $lecture = Lecture::findOrFail($id);
 
@@ -156,7 +158,7 @@ class LectureController extends Controller
         return view('lectures.masscreate', compact('unit'));
     }
 
-    public function massStore(Request $request)
+    public function massStore(MassLectureRequest $request)
     {
         $input = $request->all();
 

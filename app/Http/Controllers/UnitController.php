@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EnterUnitRequest;
+use App\Http\Requests\UnitRequest;
 use Illuminate\Http\Request;
 use App\Unit;
 use App\Http\Requests;
@@ -50,7 +51,7 @@ class UnitController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UnitRequest $request)
     {
 
         $input = $request->all();
@@ -95,7 +96,7 @@ class UnitController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UnitRequest $request, $id)
     {
         $unit = Unit::findOrFail($id);
 

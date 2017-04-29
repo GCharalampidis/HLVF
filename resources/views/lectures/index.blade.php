@@ -23,7 +23,7 @@
                                     <th>Name</th>
                                     <th>Date</th>
                                     <th>Questions</th>
-                                    <th>Students Answered</th>
+                                    <th>Students Answered*</th>
                                     <th>Average</th>
                                     <th>Created</th>
                                     <th>Updated</th>
@@ -41,7 +41,7 @@
                                         <td><a href="{{route('lectures.show', $lecture->id)}}">{{$lecture->name}} @if($unit->activeLecture()->id === $lecture->id) <i class="fa fa-check" aria-hidden="true"></i> @endif</a></td>
                                         <td>{{$lecture->date->diffForHumans()}} ({{$lecture->date->format('d-m-y H:i')}})</td>
                                         <td>{{$lecture->questionsCount()}}</td>
-                                        <td>{{$lecture->answers}} @if($lecture->unit->studentnumber > 0)({{round($lecture->answers/$lecture->unit->studentnumber*100, 2)}}%)@endif</td>
+                                        <td>{{$lecture->answers}} @if($lecture->unit->studentnumber > 0)({{$lecture->studentPercentage()}}%)@endif</td>
                                         <td><p style="color:
                                             @if($lecture->average < 50)red
                                             @elseif($lecture->average < 75)#3498db;
@@ -73,6 +73,8 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <i>In order to ensure the anonymity of the students, anyone who has the unit's key can answer a lecture's question more than once.
+                                Therefore the "Student's Answered Percentage" statistic is not always accurate.</i>
                         @else
                             There are no lectures for this unit yet!
                         @endif
