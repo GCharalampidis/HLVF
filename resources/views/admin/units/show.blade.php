@@ -16,7 +16,7 @@
                                 <a class='btn btn-primary' href="{{route('admin.units.index')}}">Back</a>
                                 <a class='btn btn-success' href="{{route('lectures.testindex', $unit->id)}}">Lectures</a>
                                 <a class="btn btn-warning" href="{{route('admin.units.edit', $unit->id)}}" >Edit</a>
-                                <a class='btn btn-danger' href="{{route('admin.units.delete', $unit->id)}}">Delete</a>
+                                <a class='btn btn-danger' href="{{route('admin.units.delete', $unit->id)}}" onclick="return confirm('Are you sure?')">Delete</a>
                             </div>
 
                         </div>

@@ -53,7 +53,7 @@
                                             <a class="btn btn-primary" href="{{route('lectures.edit', $lecture->id)}}" aria-label="Edit">
                                                 <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
                                             </a>
-                                            <a class="btn btn-danger" href="{{route('lectures.delete', $lecture->id)}}" aria-label="Delete">
+                                            <a class="btn btn-danger" href="{{route('lectures.delete', $lecture->id)}}" onclick="return confirm('Are you sure?')" aria-label="Delete">
                                                 <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                             </a>
                                         </td>

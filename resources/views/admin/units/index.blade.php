@@ -42,7 +42,7 @@
                         <a class="btn btn-primary" href="{{route('admin.units.edit', $unit->id)}}" aria-label="Edit">
                             <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
                         </a>
-                        <a class="btn btn-danger" href="{{route('admin.units.delete', $unit->id)}}" aria-label="Delete">
+                        <a class="btn btn-danger" href="{{route('admin.units.delete', $unit->id)}}" onclick="return confirm('Are you sure?')" aria-label="Delete">
                             <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                         </a>
                     </td>
@@ -69,5 +69,16 @@
 
 
     {{--<a href="{{route('posts.create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>--}}
+    <script>
 
+        function ConfirmDelete()
+        {
+            var x = confirm("Are you sure you want to delete?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+
+    </script>
 @endsection
