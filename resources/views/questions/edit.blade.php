@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts/admin')
 
 @section('content')
     <div class="container">
@@ -25,7 +25,7 @@
                             @endif
                             <br/>
 
-                            <div style="border-radius: 25px; border: 2px solid black; background-color: #32363b; display: block; text-align: center;" id="q1">
+                            <div style="border-radius: 25px; border: 2px solid black; background-color: #fbf9ff; display: block; text-align: center;" id="q1">
 
                                 <h3>Your Question</h3>
                                 <label for="test"><i class="fa fa-smile-o fa-3x"></i> </label>
@@ -36,15 +36,10 @@
                                 {!! Form::radio('test', 'test') !!}<br/>
 
                             </div>
-                            <div style="border-radius: 25px; border: 2px solid black; background-color: #32363b; display: none; text-align: center;" id="q2">
-                                <h3>Your Question</h3>
-                                <img src="{{asset('images/smiley.png')}}" alt="smiley slider preview">
+                            <div style="border-radius: 25px; border: 2px solid black; background-color: #fbf9ff; display: none; text-align: center;" id="q2">
+                                <img src="{{asset('images/gif.gif')}}" alt="smiley slider preview">
                             </div>
 
-                            <div style="border-radius: 25px; border: 2px solid black; background-color: #32363b; display: none; text-align: center; padding: 10px;" id="q3">
-                                <h3>Your Question</h3>
-                                {!! Form::text('test', null, ['class'=>'form-control']) !!}
-                            </div>
                         </div>
 
 
@@ -55,7 +50,7 @@
 
                         {!!  Form::hidden('lecture_id', $question->lecture->id) !!}
 
-                        <a class='btn btn-primary' href='{{URL::previous()}}'>Back</a>
+                        <a class='btn btn-primary' href='{{route('questions.testindex', $question->lecture->id)}}'>Back</a>
                         {!! Form::submit('Update Question', ['class'=>'btn btn-success']) !!}
 
                     {!! Form::close()!!}

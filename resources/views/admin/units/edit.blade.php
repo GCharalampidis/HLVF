@@ -29,8 +29,8 @@
                             {!! Form::number('studentnumber', null, ['class'=>'form-control']) !!}
                         </div>
 
-                        <a class='btn btn-primary' href='{{route('admin.units.show', $unit->id)}}'>Back</a>
-                        {!! Form::submit('Update Unit', ['class'=>'btn btn-info']) !!}
+                        <a class='btn btn-primary' href='{{route('admin.units.index')}}'>Back</a>
+                        {!! Form::submit('Update Unit', ['class'=>'btn btn-success']) !!}
 
 
                     {!! Form::close()!!}

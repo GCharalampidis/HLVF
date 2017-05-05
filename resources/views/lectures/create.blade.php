@@ -28,7 +28,7 @@
 
                         {!!  Form::hidden('unit_id', $unit->id) !!}
 
-                        <a class='btn btn-primary' href="{{URL::previous()}}">Back</a>
+                        <a class='btn btn-primary' href="{{route('lectures.testindex', $unit->id)}}">Back</a>
                         {!! Form::submit('Create Lecture', ['class'=>'btn btn-success']) !!}
 
 

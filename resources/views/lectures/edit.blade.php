@@ -24,8 +24,8 @@
                             {!! Form::time('time', null, ['class'=>'form-control']) !!}
                         </div>
 
-                        <a class='btn btn-primary' href={{URL::previous()}}>Back</a>
-                        {!! Form::submit('Update Lecture', ['class'=>'btn btn-info']) !!}
+                        <a class='btn btn-primary' href={{route('lectures.testindex', $lecture->unit->id)}}>Back</a>
+                        {!! Form::submit('Update Lecture', ['class'=>'btn btn-success']) !!}
 
                     {!! Form::close() !!}
 

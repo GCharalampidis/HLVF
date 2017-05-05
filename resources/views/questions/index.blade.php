@@ -54,37 +54,37 @@
         {{--DRAGULA--}}
         <div style="display: flex; text-align: center; justify-content: center;">
 
-            <ul id="left" style="min-width: 250px; min-height: 200px; max-width:300px; background: #32363b;
-                background: -webkit-radial-gradient(circle, #64688c, #44496b, #323650);
-                background: -o-radial-gradient(circle, #64688c, #44496b, #323650);
-                background: -moz-radial-gradient(circle, #64688c, #44496b, #323650);
-                background: radial-gradient(circle, #64688c, #44496b, #323650);
+            <ul id="left" style="min-width: 250px; min-height: 200px; max-width:300px; background: #9f99ff;
+                background: -webkit-radial-gradient(circle, #fff9fc, #d9d6ff, #a7abff);
+                background: -o-radial-gradient(circle, #fff9fc, #d9d6ff, #a7abff);
+                background: -moz-radial-gradient(circle, #fff9fc, #d9d6ff, #a7abff);
+                background: radial-gradient(circle, #fff9fc, #d9d6ff, #a7abff);
                 margin: 5px;  border-radius: 25px; border: 3px solid #000000; margin-right: 1em; list-style-type: none; padding: 10px;">
                 Active:
                 @foreach($lecture->questions as $question)
                     @if($question->active == 1)
-                        <li data-id="{{$question->id}}" style="cursor: move; background-color: #44496b; margin: 5px; padding: 5px;  border-radius: 25px;
-        border: 2px solid #000000; box-shadow: 3px 5px 5px #15172a;"><p style="margin: 5px">{{$question->text}}</p></li>
+                        <li data-id="{{$question->id}}" style="cursor: move; background-color: #fbf9ff; margin: 5px; padding: 5px;  border-radius: 25px;
+        border: 2px solid #000000; box-shadow: 3px 5px 5px #5c5a5a;"><p style="margin: 5px">{{$question->text}}</p></li>
                     @endif
                 @endforeach
             </ul>
 
             <ul id="right" style="min-width: 250px; min-height: 200px; max-width:300px;
-                background: #ff7384;
-                background: -webkit-radial-gradient(circle, #d07f77, #974341, #972423);
-                background: -o-radial-gradient(circle, #d07f77, #974341, #972423);
-                background: -moz-radial-gradient(circle, #d07f77, #974341, #972423);
-                background: radial-gradient(circle, #d07f77, #974341, #972423);
+                background: #ff909a;
+                background: -webkit-radial-gradient(circle, #fff9fc, #fbc2c5, #ffa3a0);
+                background: -o-radial-gradient(circle, #fff9fc, #fbc2c5, #ffa3a0);
+                background: -moz-radial-gradient(circle, #fff9fc, #fbc2c5, #ffa3a0);
+                background: radial-gradient(circle, #fff9fc, #fbc2c5, #ffa3a0);
                 margin: 5px;  border-radius: 25px; border: 3px solid #000000; margin-right: 1em; list-style-type: none; padding: 10px;">
                 Inactive:
                 @foreach($lecture->questions as $question)
                     @if($question->active == 0)
-                        <li data-id="{{$question->id}}" style="cursor: move; background-color: #974341; margin: 5px; padding: 5px; border-radius: 25px;
-        border: 2px solid #000000; box-shadow: 3px 5px 5px #241010;"><p style="margin: 5px">{{$question->text}}</p></li>
+                        <li data-id="{{$question->id}}" style="cursor: move; background-color: #fbf9ff; margin: 5px; padding: 5px; border-radius: 25px;
+        border: 2px solid #000000; box-shadow: 3px 5px 5px #5c5a5a;"><p style="margin: 5px">{{$question->text}}</p></li>
                     @endif
                 @endforeach
             </ul>
-        </div><br/>
+        </div>
 
 
 
@@ -92,7 +92,7 @@
         There are no questions for this lecture yet!
     @endif
 
-    <div style="display: flex; flex-direction: row; justify-content: center;">
+    <div style="text-align: center">
         <br/><br/><a class='btn btn-primary' href="{{route('lectures.show', $lecture->id)}}">Back</a>
         <button type="button" class="btn btn-info" onclick="saveQuestions()">Save</button>
         <a class='btn btn-success' href="{{url('/lecture/'.$lecture->id.'/questions/create')}}">Create</a>
