@@ -4,22 +4,26 @@
     <h1 class="page-header">Analytics</h1>
     @if(sizeof($units)>0)
         <div style="text-align: center">
-
-            <h4><strong>Every unit's lectures and their average marks.</strong></h4>
+            {{--Lectures - Average --}}
+            <h3><strong>Every unit's lectures and their average marks.</strong></h3>
             <center>
                 <div id="myChartSelector" style="height: 250px; width: 1000px;"></div><br/>
                     <button class="btn btn-primary" id="bunit0">None</button>
                     @foreach($units as $unit)
-                        <button class="btn btn-primary" id="bunit{{$unit->id}}">{{$unit->name}}</button>
+                        @if($unit->lecturesCount()>0)
+                            <button class="btn btn-primary" id="bunit{{$unit->id}}">{{$unit->name}}</button>
+                        @endif
                     @endforeach
 
-            <br/><br/><br/>
-
-            <h4><strong>How many of the students answered a unit's lectures.</strong></h4>
+                <br/><hr>
+            {{--Lectures - % of Students --}}
+            <h3><strong>How many of the students answered a unit's lectures.</strong></h3>
                 <div id="myPercentChartSelector" style="height: 250px; width: 1000px;"></div><br/>
                 <button class="btn btn-primary" id="perbunit0">None</button>
                 @foreach($units as $unit)
+                    @if($unit->lecturesCount()>0)
                     <button class="btn btn-primary" id="perbunit{{$unit->id}}">{{$unit->name}}</button>
+                    @endif
                 @endforeach
 
             </center>

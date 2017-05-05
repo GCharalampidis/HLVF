@@ -34,7 +34,7 @@ elixir(function(mix) {
             paths.fontawesome + "/css/font-awesome.min.css",
             paths.jqueryui + "/jquery-ui.min.css",
             paths.morrisjs + "/morris.css",
-            paths.assets + "/css/bootstrap2.min.css",
+            // paths.assets + "/css/bootstrap2.min.css",
             paths.assets + "/css/metisMenu.css",
             paths.assets + "/css/sb-admin-2.css",
             paths.assets + "/css/blog-post.css",
