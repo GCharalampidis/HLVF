@@ -11,7 +11,7 @@
 
                             <li class="list-group-item"><i class="fa fa fa-calendar fa-lg"></i>&nbsp {{$unit->semester}} {{$unit->year}}</li>
                             <li class="list-group-item"><i class="fa fa fa-users fa-lg"></i>&nbsp {{$unit->studentnumber}}</li>
-                            <li class="list-group-item"><i class="fa fa-key fa-lg"></i>&nbsp; {{$unit->key}}</li>
+                            <li class="list-group-item"><i class="fa fa-key fa-lg"></i>&nbsp; {{$unit->key}} <i data-placement='bottom' data-toggle='tooltip' title="Students with this key can answer this unit's questions." style="color: red;" class="fa fa-question-circle" aria-hidden="true"></i></li>
                             <div style="text-align: center; padding-top: 10px">
                                 <a class='btn btn-primary' href="{{route('admin.units.index')}}">Back</a>
                                 <a class='btn btn-success' href="{{route('lectures.testindex', $unit->id)}}">Lectures</a>

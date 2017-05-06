@@ -26,9 +26,9 @@
                                             <th>Email</th>
                                             <th>Contact</th>
                                             <th>Units</th>
-                                            @if(\Illuminate\Support\Facades\Auth::check())
-                                               <th>Actions</th>
-                                            @endif
+                                            {{--@if(\Illuminate\Support\Facades\Auth::check())--}}
+                                               {{--<th>Actions</th>--}}
+                                            {{--@endif--}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -56,16 +56,16 @@
 
                                                 <td>{{$user->unitsCount()}}</td>
 
-                                                @if(\Illuminate\Support\Facades\Auth::check())
-                                                    <td>
-                                                        <a class="btn btn-primary" href="{{route('staff.edit', $user->id)}}" aria-label="Edit">
-                                                            <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
-                                                        </a>
-                                                        <a class="btn btn-danger" href="{{route('staff.delete', $user->id)}}" onclick="return confirm('Are you sure?')" aria-label="Delete">
-                                                            <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
-                                                        </a>
-                                                    </td>
-                                                @endif
+                                                {{--@if(\Illuminate\Support\Facades\Auth::check())--}}
+                                                    {{--<td>--}}
+                                                        {{--<a class="btn btn-primary" href="{{route('staff.edit', $user->id)}}" aria-label="Edit">--}}
+                                                            {{--<i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>--}}
+                                                        {{--</a>--}}
+                                                        {{--<a class="btn btn-danger" href="{{route('staff.delete', $user->id)}}" onclick="return confirm('Are you sure?')" aria-label="Delete">--}}
+                                                            {{--<i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>--}}
+                                                        {{--</a>--}}
+                                                    {{--</td>--}}
+                                                {{--@endif--}}
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -74,9 +74,9 @@
                                 There are no registered users yet!
                             @endif
 
-                            @if(\Illuminate\Support\Facades\Auth::check())
-                                <a href="{{route('staff.create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>
-                            @endif
+                            {{--@if(\Illuminate\Support\Facades\Auth::check())--}}
+                                {{--<a href="{{route('staff.create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>--}}
+                            {{--@endif--}}
 
 
                     </div>

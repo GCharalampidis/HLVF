@@ -39,10 +39,10 @@
                         <td>{{$question->active === 1 ? "Active" : "Not Active" }}</td>
 
                             <td>
-                                <a class="btn btn-primary" href="{{route('questions.edit', $question->id)}}" aria-label="Edit">
+                                <a class="btn btn-primary" href="{{route('questions.edit', $question->id)}}" aria-label="Edit" data-placement='top' data-toggle='tooltip' title='Edit Question'>
                                     <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
                                 </a>
-                                <a class="btn btn-danger" href="{{route('questions.delete', $question->id)}}" onclick="return confirm('Are you sure?')" aria-label="Delete">
+                                <a class="btn btn-danger" href="{{route('questions.delete', $question->id)}}" onclick="return confirm('Are you sure?')" aria-label="Delete" data-placement='top' data-toggle='tooltip' title='Delete Question'>
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </a>
                             </td>

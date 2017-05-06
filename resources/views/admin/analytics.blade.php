@@ -66,7 +66,7 @@
             parseTime: false,
             // Chart data records -- each entry in this array corresponds to a point on
             // the chart.
-            data: [{lecture: 'No Lecture', mark: 0}],
+            data: [{lecture: 'No Unit Selected', mark: 0}],
             // The name of the data record attribute that contains x-values.
             xkey: 'lecture',
             // A list of names of data record attributes that contain y-values.
@@ -155,7 +155,7 @@
             parseTime: false,
             // Chart data records -- each entry in this array corresponds to a point on
             // the chart.
-            data: [{lecture: '0', percentage: 0}],
+            data: [{lecture: 'No Unit Selected', percentage: 0}],
             // The name of the data record attribute that contains x-values.
             xkey: 'lecture',
             // A list of names of data record attributes that contain y-values.

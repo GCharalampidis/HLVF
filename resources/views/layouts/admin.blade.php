@@ -40,7 +40,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+            <a class="navbar-brand" style="padding: 0px;" href="{{ url('/') }}">
+                <img style="height: 100%; padding: 4px 15px; width: auto;" src="{{asset('logodark.png')}}" alt="logo">
+            </a>
         </div>
         <!-- /.navbar-header -->
 
@@ -52,8 +54,6 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="{{route('staff.edit', \Illuminate\Support\Facades\Auth::id())}}"><i class="fa fa-user fa-fw"></i> Edit Profile</a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -68,31 +68,22 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <!-- /input-group -->
-                    </li>
+                    {{--<li class="sidebar-search">--}}
+                        {{--<div class="input-group custom-search-form">--}}
+                            {{--<input type="text" class="form-control" placeholder="Search...">--}}
+                            {{--<span class="input-group-btn">--}}
+                                {{--<button class="btn btn-default" type="button">--}}
+                                    {{--<i class="fa fa-search"></i>--}}
+                                {{--</button>--}}
+                            {{--</span>--}}
+                        {{--</div>--}}
+                        {{--<!-- /input-group -->--}}
+                    {{--</li>--}}
                     <li>
                         <a href="{{url('/admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Users<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('staff.index')}}">All Users</a>
-                            </li>
-                            <li>
-                                <a href="{{route('staff.create')}}">Create User</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
+                        <a href="{{route('staff.index')}}"><i class="fa fa-users fa-fw"></i> Users</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-table fa-fw"></i> Units<span class="fa arrow"></span></a>
