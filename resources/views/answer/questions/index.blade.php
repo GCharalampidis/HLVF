@@ -13,8 +13,9 @@
 
                             {!! Form::open(['method'=>'POST', 'action'=>'AnswerController@store']) !!}
                             <input type="hidden" id="currentqcounter" value=1>
-
+                                <?php $y = 0; ?>
                                 @foreach($lecture->questions as $question)
+
                                         @if($question->active == 1)
                                             <div id="question_{{$i}}" @if ($i == 1) style="display: block;" @else style="display: none;" @endif>
                                                 <h4 class="page-header"><i>Question {{$i}} of {{$activequestions}}</i></h4>
@@ -22,12 +23,14 @@
                                                 <h3>{{$question->text}}</h3>
                                                 @if($question->question_type == 1)
                                                 <fieldset id="group{{$i}}">
-                                                    <label for="content"><i class="fa fa-smile-o fa-3x"></i> </label>
-                                                    {!! Form::radio('content[] '.'group'.$i, ':)', true) !!}&nbsp;&nbsp;
-                                                    <label for="content"><i class="fa fa-meh-o fa-3x"></i> </label>
-                                                    {!! Form::radio('content[] '.'group'.$i, ':|') !!}&nbsp;&nbsp;
-                                                    <label for="content"><i class="fa fa-frown-o fa-3x"></i></label>
-                                                    {!! Form::radio('content[] '.'group'.$i, ':(') !!}<br/>
+                                                    <div id="sites">
+                                                        <label for="{{$y}}" class="selected"><i class="fa fa-smile-o fa-3x"></i> </label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', ':)', true, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+                                                        <label for="{{$y}}"><i class="fa fa-meh-o fa-3x"></i> </label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', ':|', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+                                                        <label for="{{$y}}"><i class="fa fa-frown-o fa-3x"></i></label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', ':(', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}<br/>
+                                                    </div>
                                                 </fieldset>
                                                 @elseif($question->question_type == 2)
 

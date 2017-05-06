@@ -75,7 +75,13 @@ $(document).ready(function(){
     });
 });
 
-
+//Tooltips
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
+});
+
+//Radio buttons styles
+// $('#sites input:radio').addClass('input_hidden');
+$('#sites label').click(function() {
+    $(this).addClass('selected').siblings().removeClass('selected');
 });
