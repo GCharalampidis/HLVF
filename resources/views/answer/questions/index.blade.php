@@ -24,22 +24,22 @@
                                                 @if($question->question_type == 1)
                                                 <fieldset id="group{{$i}}">
                                                     <div id="sites">
-                                                        <label for="{{$y}}" class="selected" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/happy.png')}}" height="100" alt="happy"></label>
+                                                        <label for="{{$y}}" class="selected" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/happy.png')}}" height="90" alt="happy"></label>
                                                         {!! Form::radio('content[] '.'group'.$i.' site', 'happy', true, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
 
-                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/indifferent.png')}}" height="100" alt="indifferent"></label>
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/indifferent.png')}}" height="90" alt="indifferent"></label>
                                                         {!! Form::radio('content[] '.'group'.$i.' site', 'indifferent', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
 
-                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/anxious.png')}}" height="100" alt="anxious"></label>
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/anxious.png')}}" height="90" alt="anxious"></label>
                                                         {!! Form::radio('content[] '.'group'.$i.' site', 'anxious', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
 
-                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/bored.png')}}" height="100" alt="bored"></label>
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/bored.png')}}" height="90" alt="bored"></label>
                                                         {!! Form::radio('content[] '.'group'.$i.' site', 'bored', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
 
-                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/sad.png')}}" height="100" alt="sad"></label>
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/sad.png')}}" height="90" alt="sad"></label>
                                                         {!! Form::radio('content[] '.'group'.$i.' site', 'sad', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
 
-                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/angry.png')}}" height="100" alt="angry"></label>
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/angry.png')}}" height="90" alt="angry"></label>
                                                         {!! Form::radio('content[] '.'group'.$i.' site', 'angry', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
                                                         <br/>
                                                     </div>

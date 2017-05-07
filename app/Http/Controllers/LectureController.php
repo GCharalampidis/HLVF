@@ -176,7 +176,7 @@ class LectureController extends Controller
             Lecture::create($input);
         }
 
-        Session::flash('created_lectures', --$i.' lectures have been created.');
+        Session::flash('created_lectures', --$i.' lectures have been created. Click the "Mass Set Questions" button to set questions for all the sessions.');
 
         return redirect('/unit/'.$request->unit_id.'/lectures');
     }
@@ -184,5 +184,10 @@ class LectureController extends Controller
     public function getDate($date)
     {
         return Carbon::parse($date);
+    }
+
+    public function updateStatus(Request $request)
+    {
+        return redirect('/unit/'.$request->unit_id.'/lectures');
     }
 }

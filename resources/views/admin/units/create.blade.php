@@ -32,6 +32,11 @@
                         {!! Form::number('studentnumber', null, ['class'=>'form-control']) !!}
                     </div>
 
+                    <div class="form-group">
+                        {!! Form::label('active', 'Status:') !!}
+                        {!! Form::select('active', array(0 => 'Not Active', 1 => 'Active'), 1, ['class'=>'form-control']) !!}
+                    </div>
+
                     {!! Form::hidden('user_id', Illuminate\Support\Facades\Auth::id()) !!}
 
                     {!! Form::hidden('key', str_random(5)) !!}

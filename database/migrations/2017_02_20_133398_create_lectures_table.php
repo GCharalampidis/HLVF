@@ -19,6 +19,7 @@ class CreateLecturesTable extends Migration
             $table->smallInteger('average');
             $table->dateTimeTz('date');
             $table->integer('answers');
+            $table->boolean('active');
             $table->integer('unit_id')->unsigned()->nullable()->index();
             $table->timestamps();
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');

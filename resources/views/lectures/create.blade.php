@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel-body">
-                    <h1>Create Lecture for {{$unit->name}}</h1>
+                    <h1>Create Lecture Session for {{$unit->name}}</h1>
 
                     {!! Form::open(['method'=>'POST', 'action'=>'LectureController@store']) !!}
 

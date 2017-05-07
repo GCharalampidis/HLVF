@@ -3,7 +3,7 @@
 @section('content')
 
 
-                        <h1 class="page-header">Lectures of {{$unit->name}}</h1>
+                        <h1 class="page-header">Lecture Sessions of {{$unit->name}}</h1>
                         @if(Session::has('deleted_lecture'))
                             <div class="alert alert-success">{{session('deleted_lecture')}}</div>
                         @endif
@@ -37,9 +37,8 @@
                                 @foreach($unit->lectures as $lecture)
 
                                     <tr>
-                                        {{--<td><a href="{{route('staff.show', $user->id)}}">{{$user->name}}</a></td>--}}
                                         <td><a href="{{route('lectures.show', $lecture->id)}}">{{$lecture->name}} @if($unit->activeLecture()->id === $lecture->id) (Active) <i class="fa fa-check" aria-hidden="true"></i> @endif</a></td>
-                                        <td>{{$lecture->date->diffForHumans()}} ({{$lecture->date->format('d-m-y H:i')}})</td>
+                                        <td>{{$lecture->date->format('d-m-y H:i')}} <i>({{$lecture->date->diffForHumans()}})</i></td>
                                         <td>{{$lecture->questionsCount()}}</td>
                                         <td>{{$lecture->answers}} @if($lecture->unit->studentnumber > 0)({{$lecture->studentPercentage()}}%)@endif</td>
                                         <td><p style="color:
@@ -57,17 +56,6 @@
                                                 <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                             </a>
                                         </td>
-
-
-                                            {{--<td>--}}
-                                                {{--<a class="btn btn-primary" href="{{route('staff.edit', $user->id)}}" aria-label="Edit">--}}
-                                                    {{--<i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>--}}
-                                                {{--</a>--}}
-                                                {{--<a class="btn btn-danger" href="{{route('staff.delete', $user->id)}}" aria-label="Delete">--}}
-                                                    {{--<i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>--}}
-                                                {{--</a>--}}
-                                            {{--</td>--}}
-
                                     </tr>
                                     <?php $count += 1; ?>
                                 @endforeach
@@ -80,8 +68,8 @@
                         <div style="padding-top: 10px">
                             <a class='btn btn-primary' href="{{url('admin/units/'.$unit->id)}}">Back</a>
                             <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/create')}}">Create</a>
-                            <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/masscreate')}}" data-placement='top' data-toggle='tooltip' title="If this unit's sessions take place once a week at the same day, create more than one lecture sessions for this unit.">Mass Create</a>
-                            @if($unit->lecturesCount() > 0) <a class='btn btn-warning' href="{{url('#')}}" data-placement='top' data-toggle='tooltip' title="Set the same questions for this unit's already existing lecture sessions." onclick="return confirm('Are you sure you want to overwrite all the questions?')">Mass Set Questions</a> @endif
+                            <a class='btn btn-success' href="{{url('/unit/'.$unit->id.'/lectures/masscreate')}}" data-placement='top' data-toggle='tooltip' title="If your unit's sessions take place at the same intervals, create more than one lecture sessions for this unit.">Mass Create</a>
+                            @if($unit->lecturesCount() > 0) <a class='btn btn-warning' href="{{route('admin.units.masscreate', $unit->id)}}" data-placement='top' data-toggle='tooltip' title="Set one question for ALL lecture sessions of this unit." onclick="return confirm('Are you sure you want to add a question to ALL lecture sessions of this unit?')">Add Question to All Sessions</a> @endif
                         </div>
                         {{--@if(\Illuminate\Support\Facades\Auth::check())--}}
                             {{--<a href="{{route('staff.create')}}"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a>--}}

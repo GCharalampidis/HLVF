@@ -17,6 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('lecture_id')->unsigned();
             $table->string('text');
             $table->smallInteger('question_type');
+            $table->smallInteger('average');
             $table->boolean('active');
             $table->timestamps();
             $table->foreign('lecture_id')->references('id')->on('lectures')->onDelete('cascade');

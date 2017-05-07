@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EnterUnitRequest;
+use App\Http\Requests\QuestionRequest;
 use App\Http\Requests\UnitRequest;
+use App\Question;
 use Illuminate\Http\Request;
 use App\Unit;
 use App\Http\Requests;
@@ -16,8 +18,8 @@ class UnitController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth'], ['except' => ['checkKey']]);
-        $this->middleware(['myAuth'], ['except' => ['checkKey','index','create','store']]);
+        $this->middleware(['auth'], ['except' => ['checkKey','storePlease']]);
+        $this->middleware(['myAuth'], ['except' => ['checkKey','index','create','store', 'storePlease']]);
 
     }
 
@@ -144,5 +146,25 @@ class UnitController extends Controller
         }
         return redirect('/answer/' . $unit->key);
     }
+
+    public function massCreate($unitid)
+    {
+        $unit = Unit::find($unitid);
+        return view('admin.units.massset', compact('unit'));
+    }
+
+    public function storePlease(QuestionRequest $request)
+    {
+        $input = $request->all();
+        $unit = Unit::find($request->unit_id);
+
+        foreach ($unit->lectures as $lecture)
+        {
+            $input['lecture_id'] = $lecture->id;
+            Question::create($input);
+        }
+        return redirect('/unit/'.$unit->id.'/lectures');
+    }
+
 
 }

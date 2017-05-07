@@ -6,7 +6,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h1 class="page-header">Mass Create Lectures for {{$unit->name}}</h1>
+                        <h1 class="page-header">Mass Create Lecture Sessions for {{$unit->name}}</h1>
 
                             {!! Form::open(['method'=>'POST', 'action'=>'LectureController@massStore']) !!}
 
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="form-group">
-                                {!! Form::label('lectures', 'Number of Lectures: (Max: 99)') !!}
+                                {!! Form::label('lectures', 'Number of Lecture Sessions: (Max: 99)') !!}
                                 {!! Form::number('lectures', null, ['class'=>'form-control']) !!}
                             </div>
 

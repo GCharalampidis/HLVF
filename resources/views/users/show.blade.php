@@ -28,11 +28,9 @@
 
                             </div>
 
-                            @if(\Illuminate\Support\Facades\Auth::check())
-                                <a class='btn btn-primary' href="{{route('staff.index')}}">Back</a>
-                                <a class="btn btn-warning" href="{{route('staff.edit', $user->id)}}" >Edit</a>
-                                <a class='btn btn-danger' href="{{route('staff.delete', $user->id)}}" onclick="return confirm('Are you sure?')" >Delete</a>
-                            @endif
+
+                                <a class='btn btn-info' href="{{route('staff.index')}}">Back</a>
+
 
                         </div>
                     </div>

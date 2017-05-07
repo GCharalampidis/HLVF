@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Unit extends Model
 {
 
-    protected $fillable = ['name', 'semester', 'year', 'key', 'studentnumber', 'user_id'];
+    protected $fillable = ['name', 'semester', 'year', 'key', 'studentnumber', 'user_id', 'active'];
 
     protected $hidden = ['key'];
 

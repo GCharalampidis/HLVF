@@ -12,7 +12,7 @@
     @if(Session::has('edited_question'))
         <div class="alert alert-success">{{session('edited_question')}}</div>
     @endif
-    @if($lecture->questionsCount() > 0)
+    @if($lecture->questionsCountAll() > 0)
         <table class="table">
             <thead>
                 <tr>

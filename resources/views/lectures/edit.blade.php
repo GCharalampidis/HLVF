@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel-body">
-                    <h1>Edit Lecture</h1>
+                    <h1>Edit Lecture Session</h1>
 
                     {!! Form::model($lecture, ['method'=>'PATCH', 'action'=> ['LectureController@update', $lecture->id]]) !!}
 

@@ -29,12 +29,21 @@ Route::get('/enterkey', function ()
 
 Route::post('/a1d24fg41A', 'UnitController@checkKey');
 
+Route::group(['middlewareGroups'=>'api'], function()
+{
+    Route::get('/lecture/{lectures}/updateStatus', ['as' => 'lecture.updatestatus', 'uses' => 'LectureController@updateStatus']);
+});
+
 Route::group(['middlewareGroups'=>'web','auth'], function()
 {
 
     Route::resource('/admin/analytics', 'AnalyticsController');
 
+
     Route::get('admin/units/{units}/delete', ['as' => 'admin.units.delete', 'uses' => 'UnitController@destroy']);
+    Route::post('/unit/lectures/massstore', ['as' => 'lectures.massstore', 'uses' => 'LectureController@massStore']);
+    Route::post('/unit/storeplease', ['as' => 'units.storeplease', 'uses' => 'UnitController@storePlease']);
+    Route::get('/unit/{units}/masscreate', ['as' => 'admin.units.masscreate', 'uses' => 'UnitController@massCreate']);
     Route::resource('/admin/units', 'UnitController');
 
     Route::get('staff/{id}/delete', ['as' => 'staff.delete', 'uses' => 'UserController@destroy']);
@@ -45,7 +54,7 @@ Route::group(['middlewareGroups'=>'web','auth'], function()
     Route::get('/unit/{units}/lectures', ['as' => 'lectures.testindex', 'uses' => 'LectureController@testIndex']);
     Route::get('/unit/{units}/lectures/create', ['as' => 'lectures.testcreate', 'uses' => 'LectureController@testCreate']);
     Route::get('/unit/{units}/lectures/masscreate', ['as' => 'lectures.testmasscreate', 'uses' => 'LectureController@testMassCreate']);
-    Route::post('/unit/lectures/massstore', ['as' => 'lectures.massstore', 'uses' => 'LectureController@massStore']);
+
     Route::get('/lecture/{lectures}/delete', ['as' => 'lectures.delete', 'uses' => 'LectureController@destroy']);
     Route::resource('/lectures', 'LectureController');
 

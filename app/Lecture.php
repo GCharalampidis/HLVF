@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lecture extends Model
 {
 
-    protected $fillable = ['name','average', 'date', 'unit_id'];
+    protected $fillable = ['name','average', 'date', 'unit_id', 'active'];
 
     protected $dates = ['date'];
 
@@ -30,12 +30,25 @@ class Lecture extends Model
 
     public function studentPercentage()
     {
-        return round($this->answers/$this->unit->studentnumber*100, 2);
+        if($this->unit->studentnumber <= 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return round($this->answers/$this->unit->studentnumber*100, 2);
+        }
+
     }
 
     public function questionsCount()
     {
         return Question::where(['lecture_id' => $this->id])->where(['active' => 1])->count();
+    }
+
+    public function questionsCountAll()
+    {
+        return Question::where(['lecture_id' => $this->id])->count();
     }
 
 //    public function avgScores()
