@@ -37,11 +37,17 @@
                     <td>{{$unit->studentnumber}}</td>
                     <td>{{$unit->lecturesCount()}}</td>
                     <td>@if($unit->lecturesCount() > 0){{$unit->activeLecture()->name}} @else No Active Lecture @endif</td>
-                    <td><p style="color:
-                        @if($unit->average() < 50)red
-                        @elseif($unit->average() < 75)#3498db;
-                        @else lawngreen
-                        @endif;">{{$unit->average()}}</p></td>
+                    <td>
+                        @if($unit->average() == -1)
+                            No Answers
+                        @else
+                            <p style="color:
+                            @if($unit->average() < 50)red
+                            @elseif($unit->average() < 75)#3498db;
+                            @else lawngreen
+                            @endif;">{{$unit->average()}}</p>
+                        @endif
+                    </td>
                     <td>{{$unit->created_at->diffForHumans()}}</td>
                     <td>{{$unit->updated_at->diffForHumans()}}</td>
                     <td>

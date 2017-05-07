@@ -10,7 +10,13 @@
                         <div class="list-group">
 
                             <li class="list-group-item"><i class="fa fa fa-calendar fa-lg"></i>&nbsp {{$lecture->date}} ({{$lecture->date->format('l jS \\of F Y')}})</li>
-                            <li class="list-group-item"><i class="fa fa fa-rss fa-lg"></i>&nbsp Average Mark: {{$lecture->average}}</li>
+                            <li class="list-group-item"><i class="fa fa fa-rss fa-lg"></i>&nbsp Average Mark:
+                                @if($lecture->average == -1)
+                                    No answers yet.
+                                @else
+                                    {{$lecture->average}}
+                                @endif
+                            </li>
                             <div style="text-align: center; padding-top: 10px">
                                 <a class='btn btn-primary' href="{{route('lectures.testindex', $lecture->unit->id)}}">Back</a>
                                 <a class='btn btn-success' href="{{route('questions.testindex', $lecture->id)}}">Questions</a>

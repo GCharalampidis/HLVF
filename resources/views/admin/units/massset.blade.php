@@ -21,7 +21,13 @@
                     <div class="form-group">
 
                         {!! Form::label('question_type', 'Type:') !!}
-                        {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley slider'), 1, ['class'=>'form-control']) !!}
+                        @if($unit->lectureHasSlider())
+                            {!! Form::select('question_type', array(1 => 'Smiley Faces'), 1, ['class'=>'form-control']) !!}
+                            <i>(Smiley Slider option is disabled since one or more lectures have one active).</i><br/>
+                        @else
+                            {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley Slider'), 1, ['class'=>'form-control']) !!}
+                        @endif
+
 
                         <br/>
                         <center>

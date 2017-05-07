@@ -42,7 +42,7 @@
                     {!! Form::hidden('key', str_random(5)) !!}
 
                     <a class='btn btn-primary' href="{{route('admin.units.index')}}">Back</a>
-                    {!! Form::submit('Create Unit', ['class'=>'btn btn-success']) !!}
+                    {!! Form::submit('Save Unit', ['class'=>'btn btn-success']) !!}
 
 
                     {!! Form::close()!!}

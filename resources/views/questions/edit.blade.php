@@ -8,7 +8,7 @@
                     {!! Form::model($question, ['method'=>'PATCH', 'action'=> ['QuestionController@update', $question->id]]) !!}
                         <h1>Edit Question</h1>
                         <div class="form-group">
-                            {!! Form::label('text', 'Text:') !!}
+                            {!! Form::label('text', 'Question:') !!}
                             {!! Form::text('text', null, ['class'=>'form-control']) !!}
 
                         </div>
@@ -21,11 +21,12 @@
                                 {!! Form::select('question_type', array(1 => 'Smiley Faces'), null, ['class'=>'form-control']) !!}
                                 <i>(Smiley slider option is disabled because you already have one active question which uses it).</i><br/>
                             @else
-                                {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley slider'), null, ['class'=>'form-control']) !!}
+                                {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley Slider'), null, ['class'=>'form-control']) !!}
                             @endif
                             <br/>
 
                             <center>
+                                Preview:<br/>
                                 <div style="border-radius: 25px; border: 2px solid black; background-color: #ffffff; width: 80%; display: block; text-align: center;" id="q1">
 
                                     <h3>Your Question</h3>

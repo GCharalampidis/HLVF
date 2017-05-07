@@ -168,7 +168,12 @@ class LectureController extends Controller
         $date = $this->getDate($sdate.' '.$stime.':00');
         $frequency = $request->get('frequency');
 
-        for($i = 1; $i <= $nlectures; $i++)
+        $date = $date->addWeeks(0);
+        $input['date'] = $date;
+        $input['name'] = "Lecture #1";
+        Lecture::create($input);
+
+        for($i = 2; $i <= $nlectures; $i++)
         {
             $date = $date->addWeeks($frequency);
             $input['date'] = $date;

@@ -33,6 +33,7 @@
                             </div>
 
                             {!!  Form::hidden('unit_id', $unit->id) !!}
+                            {!!  Form::hidden('average', -1) !!}
 
                             {!! Form::submit('Create Lectures', ['class'=>'btn btn-success']) !!}
 

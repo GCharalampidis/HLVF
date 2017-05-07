@@ -5,7 +5,7 @@
     @if(sizeof($units)>0)
         <div style="text-align: center">
             {{--Lectures - Average --}}
-            <h3><strong>Every unit's lectures and their average marks.</strong></h3>
+            <h3><strong>Every unit's lecture sessions and their average marks.</strong></h3>
             <center>
                 <div id="myChartSelector" style="height: 250px; width: 1000px;"></div><br/>
                     <button class="btn btn-primary" id="bunit0">None</button>
@@ -17,7 +17,7 @@
 
                 <br/><hr>
             {{--Lectures - % of Students --}}
-            <h3><strong>How many of the students answered a unit's lectures.</strong></h3>
+            <h3><strong>What percentage of the students answered this unit's questions.</strong></h3>
                 <div id="myPercentChartSelector" style="height: 250px; width: 1000px;"></div><br/>
                 <button class="btn btn-primary" id="perbunit0">None</button>
                 @foreach($units as $unit)
@@ -28,7 +28,7 @@
                 <br/><hr>
 
             {{--Average mark of units--}}
-            <h3><strong>Average mark of every unit's lectures.</strong></h3>
+            <h3><strong>Average mark of every unit.</strong></h3>
             <div id="UnitsChart" style="height: 250px; width: 1000px;"></div><br/>
 
             </center>
@@ -89,11 +89,13 @@
                     // the chart.
                     data: [
                         @foreach($unit->lectures as $index=>$lecture)
-                            @if($index == sizeof($unit->lectures)-1)
-                                {lecture: '{{$lecture->name}}', mark: {{$lecture->average}}}
-                            @else
-                                {lecture: '{{$lecture->name}}', mark: {{$lecture->average}}},
-                            @endif
+                                @if($lecture->average != -1)
+                                    @if($index == sizeof($unit->lectures)-1)
+                                        {lecture: '{{$lecture->name}}', mark: {{$lecture->average}}}
+                                    @else
+                                        {lecture: '{{$lecture->name}}', mark: {{$lecture->average}}},
+                                    @endif
+                                @endif
                         @endforeach
                     ],
                     // The name of the data record attribute that contains x-values.
@@ -244,12 +246,13 @@
         {
             element: 'UnitsChart',
             data: [
-
                 @foreach($units as $index=>$unit)
-                    @if($index == sizeof($units)-1)
-                        {y: '{{$unit->name}}', a: {{$unit->average()}}}
-                    @else
-                        {y: '{{$unit->name}}', a: {{$unit->average()}}},
+                    @if($unit->average() != -1)
+                        @if($index == sizeof($units)-1)
+                            {y: '{{$unit->name}}', a: {{$unit->average()}}}
+                        @else
+                            {y: '{{$unit->name}}', a: {{$unit->average()}}},
+                        @endif
                     @endif
                 @endforeach
 

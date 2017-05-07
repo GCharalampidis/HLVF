@@ -41,11 +41,17 @@
                                         <td>{{$lecture->date->format('d-m-y H:i')}} <i>({{$lecture->date->diffForHumans()}})</i></td>
                                         <td>{{$lecture->questionsCount()}}</td>
                                         <td>{{$lecture->answers}} @if($lecture->unit->studentnumber > 0)({{$lecture->studentPercentage()}}%)@endif</td>
-                                        <td><p style="color:
-                                            @if($lecture->average < 50)red
-                                            @elseif($lecture->average < 75)#3498db;
-                                            @else lawngreen
-                                            @endif;">{{$lecture->average}}</p></td>
+                                        <td>
+                                            @if($lecture->average == -1)
+                                                No Answers
+                                            @else
+                                                <p style="color:
+                                                @if($lecture->average < 50)red
+                                                @elseif($lecture->average < 75)#3498db;
+                                                @else lawngreen
+                                                @endif;">{{$lecture->average}}</p>
+                                            @endif
+                                        </td>
                                         <td>{{$lecture->created_at->diffForHumans()}}</td>
                                         <td>{{$lecture->updated_at->diffForHumans()}}</td>
                                         <td>

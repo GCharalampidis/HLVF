@@ -87,11 +87,13 @@ class AnswerController extends Controller
         $n = $lecture->answers;
         $currentaverage = $lecture->average;
 
+        if($currentaverage == -1)
+        {
+            $currentaverage = 0;
+        }
         $lecture->answers += 1;
 
         $lecture->average = ($currentaverage*$n + $questionsaverage)/($n + 1); //Updating new average
-
-
 
         $lecture->save();
 //        Lecture::where('id', '=', $request->get('id'))->update(['average' => $average]);

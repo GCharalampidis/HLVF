@@ -69,18 +69,45 @@ class Unit extends Model
         if($this->lecturesCount() > 0)
         {
             $sum = 0;
+            $count = 0;
             foreach ($this->lectures as $lecture)
             {
-                $sum += $lecture->average;
+                if($lecture->average != -1)
+                {
+                    $sum += $lecture->average;
+                    $count++;
+                }
             }
-            return $sum/$this->lecturesCount();
+            if($count == 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return round($sum/$count);
+            }
+
         }
         else
         {
-            return 0;
+            return -1;
         }
 
 
+    }
+
+    public function lectureHasSlider()
+    {
+        $flag = false;
+        foreach ($this->lectures as $lecture)
+        {
+            if ($lecture->hasSliderQuestion())
+            {
+                $flag = true;
+            }
+        }
+
+        return $flag;
     }
 
 }

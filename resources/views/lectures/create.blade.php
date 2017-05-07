@@ -27,9 +27,10 @@
                         </div>
 
                         {!!  Form::hidden('unit_id', $unit->id) !!}
+                        {!!  Form::hidden('average', -1) !!}
 
                         <a class='btn btn-primary' href="{{route('lectures.testindex', $unit->id)}}">Back</a>
-                        {!! Form::submit('Create Lecture', ['class'=>'btn btn-success']) !!}
+                        {!! Form::submit('Save Lecture', ['class'=>'btn btn-success']) !!}
 
 
                     {!! Form::close()!!}

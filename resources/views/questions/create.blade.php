@@ -12,7 +12,7 @@
                     {!! Form::open(['method'=>'POST', 'action'=>'QuestionController@store']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('text', 'Text:') !!}
+                            {!! Form::label('text', 'Question:') !!}
                             {!! Form::text('text', null, ['class'=>'form-control']) !!}
 
                         </div>
@@ -25,10 +25,11 @@
                                 {!! Form::select('question_type', array(1 => 'Smiley Faces'), 1, ['class'=>'form-control']) !!}
                                 <i>(Smiley slider option is disabled because you already have one active question which uses it).</i><br/>
                             @else
-                                {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley slider'), 1, ['class'=>'form-control']) !!}
+                                {!! Form::select('question_type', array(1 => 'Smiley Faces', 2 => 'Smiley Slider'), 1, ['class'=>'form-control']) !!}
                             @endif
                             <br/>
                             <center>
+                                Preview:<br/>
                             <div style="border-radius: 25px; border: 2px solid black; background-color: #ffffff; width: 80%; display: block; text-align: center;" id="q1">
 
                                 <h3>Your Question</h3>
@@ -80,7 +81,7 @@
                         {!!  Form::hidden('lecture_id', $lecture->id) !!}
 
                         <a class='btn btn-primary' href="{{route('questions.testindex', $lecture->id)}}">Back</a>
-                        {!! Form::submit('Create Question', ['class'=>'btn btn-success']) !!}
+                        {!! Form::submit('Save Question', ['class'=>'btn btn-success']) !!}
 
                     {!! Form::close()!!}
 
