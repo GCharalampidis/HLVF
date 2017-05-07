@@ -507,7 +507,9 @@ footer {
 }
 
 .selected {
-    background-color: #efefef;
+    background-color: #4f545a;
+    padding: 10px;
+    border-radius: 25px;
 }
 
 #sites label {

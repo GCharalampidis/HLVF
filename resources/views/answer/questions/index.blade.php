@@ -24,18 +24,30 @@
                                                 @if($question->question_type == 1)
                                                 <fieldset id="group{{$i}}">
                                                     <div id="sites">
-                                                        <label for="{{$y}}" class="selected"><i class="fa fa-smile-o fa-3x"></i> </label>
-                                                        {!! Form::radio('content[] '.'group'.$i.' site', ':)', true, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
-                                                        <label for="{{$y}}"><i class="fa fa-meh-o fa-3x"></i> </label>
-                                                        {!! Form::radio('content[] '.'group'.$i.' site', ':|', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
-                                                        <label for="{{$y}}"><i class="fa fa-frown-o fa-3x"></i></label>
-                                                        {!! Form::radio('content[] '.'group'.$i.' site', ':(', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}<br/>
+                                                        <label for="{{$y}}" class="selected" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/happy.png')}}" height="100" alt="happy"></label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', 'happy', true, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/indifferent.png')}}" height="100" alt="indifferent"></label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', 'indifferent', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/anxious.png')}}" height="100" alt="anxious"></label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', 'anxious', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/bored.png')}}" height="100" alt="bored"></label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', 'bored', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/sad.png')}}" height="100" alt="sad"></label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', 'sad', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                                        <label for="{{$y}}" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/angry.png')}}" height="100" alt="angry"></label>
+                                                        {!! Form::radio('content[] '.'group'.$i.' site', 'angry', false, array('id' => $y++, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+                                                        <br/>
                                                     </div>
                                                 </fieldset>
                                                 @elseif($question->question_type == 2)
 
                                                     <div id="face">
-                                                        <div id="mouth-box">
+                                                        <div id="mouth-box" style="left: 0;">
                                                             <div id="mouth" class="straight"></div>
                                                         </div>
                                                     </div>

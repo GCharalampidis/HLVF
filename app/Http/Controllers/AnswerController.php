@@ -78,7 +78,7 @@ class AnswerController extends Controller
 
         $lecture = Lecture::find($request->get('id'));
 
-//        Plebian way to add a mark to lectures current average
+
 //        $totalscore = $lecture->average * $lecture->answers;
 //        $totalscore += $questionsaverage;
 //        $lecture->answers += 1;
@@ -149,35 +149,41 @@ class AnswerController extends Controller
 
         $value = -1;
 
-        if($content == ':)' || $content == ':|' || $content == ':(')
-        {
-            if($content == ':)')
-            {
-                $value = 100;
-            }
-            elseif ($content == ':|')
-            {
-                $value = 50;
-            }
-            elseif ($content == ':(')
-            {
-                $value = 0;
-            }
-            else
-            {
-                $value = -1;
-            }
-        }
-        elseif(is_numeric($content))
+
+        if(is_numeric($content))
         {
             $value = $content;
         }
         else
         {
-            if($content == 'a')
-                $value = 50;
-            else
+            if($content == 'happy')
+            {
                 $value = 100;
+            }
+            elseif ($content == 'indifferent')
+            {
+                $value = 50;
+            }
+            elseif ($content == 'anxious')
+            {
+                $value = 40;
+            }
+            elseif ($content == 'bored')
+            {
+                $value = 30;
+            }
+            elseif ($content == 'sad')
+            {
+                $value = 20;
+            }
+            elseif ($content == 'angry')
+            {
+                $value = 10;
+            }
+            else
+            {
+                $value = -1;
+            }
         }
 
         return $value;

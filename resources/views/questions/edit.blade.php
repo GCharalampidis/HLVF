@@ -25,19 +25,45 @@
                             @endif
                             <br/>
 
-                            <div style="border-radius: 25px; border: 2px solid black; background-color: #ffffff; display: block; text-align: center;" id="q1">
+                            <center>
+                                <div style="border-radius: 25px; border: 2px solid black; background-color: #ffffff; width: 80%; display: block; text-align: center;" id="q1">
 
-                                <h3>Your Question</h3>
-                                <label for="test"><i class="fa fa-smile-o fa-3x"></i> </label>
-                                {!! Form::radio('test', 'test', true) !!}&nbsp;&nbsp;
-                                <label for="test"><i class="fa fa-meh-o fa-3x"></i> </label>
-                                {!! Form::radio('test', 'test') !!}&nbsp;&nbsp;
-                                <label for="test"><i class="fa fa-frown-o fa-3x"></i></label>
-                                {!! Form::radio('test', 'test') !!}<br/>
+                                    <h3>Your Question</h3>
+                                    <fieldset id="test">
+                                        <div id="sites">
+                                            <label for="1" class="selected" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/happy.png')}}" height="100" alt="happy"></label>
+                                            {!! Form::radio('site', 'happy', true, array('id' => 1, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
 
-                            </div>
+                                            <label for="2" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/indifferent.png')}}" height="100" alt="indifferent"></label>
+                                            {!! Form::radio('site', 'indifferent', false, array('id' => 2, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                            <label for="3" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/anxious.png')}}" height="100" alt="anxious"></label>
+                                            {!! Form::radio('site', 'anxious', false, array('id' => 3, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                            <label for="4" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/bored.png')}}" height="100" alt="bored"></label>
+                                            {!! Form::radio('site', 'bored', false, array('id' => 4, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                            <label for="5" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/sad.png')}}" height="100" alt="sad"></label>
+                                            {!! Form::radio('site', 'sad', false, array('id' => 5, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+
+                                            <label for="6" style="padding: 10px; border-radius: 25px;"><img src="{{asset('images/smileys/angry.png')}}" height="100" alt="angry"></label>
+                                            {!! Form::radio('site', 'angry', false, array('id' => 6, 'class'=> 'input_hidden')) !!}&nbsp;&nbsp;
+                                            <br/>
+                                        </div>
+                                    </fieldset>
+
+                                </div>
+                            </center>
                             <div style="border-radius: 25px; border: 2px solid black; background-color: #ffffff; display: none; text-align: center;" id="q2">
-                                <img src="{{asset('images/gif.gif')}}" alt="smiley slider preview">
+                                <h3>Your Question</h3>
+                                <div id="face">
+                                    <div id="mouth-box" style="left: 21px;">
+                                        <div id="mouth" class="straight"></div>
+                                    </div>
+                                </div>
+                                <div style="width: 20em; left: 120px;" id="slider"></div>
+                                <input type="hidden" id="slidervalue" name="test" value=-1 />
+                                <br/>
                             </div>
 
                         </div>
