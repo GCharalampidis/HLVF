@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LectureRequest;
 use App\Http\Requests\MassLectureRequest;
 use App\Lecture;
+use App\Question;
 use App\Unit;
 use Carbon\Carbon;
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
+use Psy\Util\Json;
 
 class LectureController extends Controller
 {
@@ -138,8 +141,6 @@ class LectureController extends Controller
     {
         $unit = Unit::find($unitid);
 
-
-
         return view('lectures.index', compact('unit'));
     }
 
@@ -148,7 +149,6 @@ class LectureController extends Controller
 
         $unit = Unit::find($unitid);
         return view('lectures.create', compact('unit'));
-
 
     }
 
@@ -186,8 +186,27 @@ class LectureController extends Controller
         return Carbon::parse($date);
     }
 
-    public function updateStatus(Request $request)
+    public function updateStatuses(Request $request)
     {
-        return redirect('/unit/'.$request->unit_id.'/lectures');
+        $input = $request->all();
+        $active = $input['active'];
+        $active = \GuzzleHttp\json_decode($active);
+        $inactive = $input['inactive'];
+        $inactive = \GuzzleHttp\json_decode($inactive);
+        foreach ($active as $questionid)
+        {
+            $question = Question::find($questionid);
+            $question->active = 1;
+            $question->update();
+        }
+
+        foreach ($inactive as $questionid)
+        {
+            $question = Question::find($questionid);
+            $question->active = 0;
+            $question->update();
+        }
+
+        return response()->json(['message' => 'Post edited!'], 200);
     }
 }

@@ -29,17 +29,17 @@ Route::get('/enterkey', function ()
 
 Route::post('/a1d24fg41A', 'UnitController@checkKey');
 
-Route::group(['middlewareGroups'=>'api'], function()
-{
-    Route::get('/lecture/{lectures}/updateStatus', ['as' => 'lecture.updatestatus', 'uses' => 'LectureController@updateStatus']);
-});
+//Route::group(['middlewareGroups'=>'api'], function()
+//{
+//
+//});
 
 Route::group(['middlewareGroups'=>'web','auth'], function()
 {
 
     Route::resource('/admin/analytics', 'AnalyticsController');
 
-
+    Route::post('/lecture/{lectures}/test/updateStatus', ['as' => 'lecture.updatestatus', 'uses' => 'LectureController@updateStatus']);
     Route::get('admin/units/{units}/delete', ['as' => 'admin.units.delete', 'uses' => 'UnitController@destroy']);
     Route::post('/unit/lectures/massstore', ['as' => 'lectures.massstore', 'uses' => 'LectureController@massStore']);
     Route::post('/unit/storeplease', ['as' => 'units.storeplease', 'uses' => 'UnitController@storePlease']);
@@ -69,6 +69,15 @@ Route::group(['middlewareGroups'=>'web','auth'], function()
 
 
 });
+
+//
+//Route::post('/edit', function (\Illuminate\Http\Request $request)
+//{
+//   return response()->json(['message' => 'Active: '.$request['active'].' Inactive: '.$request['inactive']]);
+//
+//})->name('edit');
+
+Route::post('/edit', ['uses' => 'LectureController@updateStatuses', 'as' => 'edit']);
 
 Route::get('/answer/{key}', 'StudentQuestionsController@testIndex');
 //watafa Route::get('/answer/{id}/create', ['as' => 'answers.testindex', 'uses' => 'QuestionController@testIndex']);

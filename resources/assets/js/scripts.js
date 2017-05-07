@@ -85,3 +85,69 @@ $(document).ready(function(){
 $('#sites label').click(function() {
     $(this).addClass('selected').siblings().removeClass('selected');
 });
+
+
+// function saveQuestions()
+// {
+//     var x = $('#left').find('li');
+//     var y = $('#right').find('li');
+//     var active = [];
+//     var inactive = [];
+//     $.each(x, function( index, value ) {
+//         active.push( $(value).data("id") );
+//     });
+//
+//     $.each(y, function( index, value ) {
+//         inactive.push( $(value).data("id") );
+//     });
+//
+//     console.log('Active ids: ' + active);
+//     console.log('Inactive ids: ' + inactive);
+//
+//     dataString = active;
+//     var jsonString = JSON.stringify(dataString);
+//     $.ajax({
+//         '_token': $('meta[name=csrf_token]').attr('content'),
+//         type: "POST",
+//         url: "test/updateStatus",
+//         data: {data : jsonString},
+//         cache: false,
+//
+//         success: function(){
+//             alert("OK");
+//         }
+//     });
+// }
+
+
+$('#modal-save').on('click', function () {
+
+    var x = $('#left').find('li');
+    var y = $('#right').find('li');
+    var active = [];
+    var inactive = [];
+    $.each(x, function( index, value ) {
+        active.push( $(value).data("id") );
+    });
+
+    $.each(y, function( index, value ) {
+        inactive.push( $(value).data("id") );
+    });
+
+    console.log('Active ids: ' + active);
+    console.log('Inactive ids: ' + inactive);
+
+    dataString1 = active;
+    dataString2 = inactive;
+    var activeString = JSON.stringify(dataString1);
+    var inactiveString = JSON.stringify(dataString2);
+    $.ajax({
+        method: "POST",
+        url: url,
+        data: {active : activeString, inactive: inactiveString,  _token: token},
+
+    })
+    .done(function (msg) {
+        console.log(JSON.stringify(msg));
+    });
+});

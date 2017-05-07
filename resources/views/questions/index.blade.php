@@ -94,29 +94,48 @@
 
     <div style="text-align: center">
         <br/><br/><a class='btn btn-primary' href="{{route('lectures.show', $lecture->id)}}">Back</a>
-        <button type="button" class="btn btn-info" onclick="saveQuestions()">Save</button>
+        {{--<button type="button" class="btn btn-info" onclick="saveQuestions()">Save</button>--}}
+        <button type="button" class="btn btn-info" id="modal-save">Save</button>
         <a class='btn btn-success' href="{{url('/lecture/'.$lecture->id.'/questions/create')}}">Create</a>
     </div>
-    <script>
+    {{--<script>--}}
 
-        function saveQuestions()
-        {
-            var x = $('#left').find('li');
-            var y = $('#right').find('li');
-            var active = [];
-            var inactive = [];
-            $.each(x, function( index, value ) {
-                active.push( $(value).data("id") );
-            });
+        {{--function saveQuestions()--}}
+        {{--{--}}
+            {{--var x = $('#left').find('li');--}}
+            {{--var y = $('#right').find('li');--}}
+            {{--var active = [];--}}
+            {{--var inactive = [];--}}
+            {{--$.each(x, function( index, value ) {--}}
+                {{--active.push( $(value).data("id") );--}}
+            {{--});--}}
 
-            $.each(y, function( index, value ) {
-                inactive.push( $(value).data("id") );
-            });
+            {{--$.each(y, function( index, value ) {--}}
+                {{--inactive.push( $(value).data("id") );--}}
+            {{--});--}}
 
-            console.log('Active ids: ' + active);
-            console.log('Inactive ids: ' + inactive);
-        }
+            {{--console.log('Active ids: ' + active);--}}
+            {{--console.log('Inactive ids: ' + inactive);--}}
 
-    </script>
+            {{--dataString = active;--}}
+            {{--var jsonString = JSON.stringify(dataString);--}}
+            {{--$.ajax({--}}
+                {{--type: "POST",--}}
+                {{--url: "test/updateStatus",--}}
+                {{--data: {data : jsonString},--}}
+                {{--cache: false,--}}
 
+                {{--success: function(){--}}
+                    {{--alert("OK");--}}
+                {{--}--}}
+            {{--});--}}
+        {{--}--}}
+
+    {{--</script>--}}
+<script>
+
+    var token = '{{ Session::token() }}';
+    var url = '{{ route('edit') }}';
+
+</script>
 @endsection
