@@ -2243,4 +2243,6 @@ $('#modal-save').on('click', function () {
         console.log(JSON.stringify(msg));
     });
 });
+
+
 //# sourceMappingURL=all.js.map

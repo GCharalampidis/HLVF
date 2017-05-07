@@ -64,4 +64,23 @@ class Unit extends Model
 
     }
 
+    public function average()
+    {
+        if($this->lecturesCount() > 0)
+        {
+            $sum = 0;
+            foreach ($this->lectures as $lecture)
+            {
+                $sum += $lecture->average;
+            }
+            return $sum/$this->lecturesCount();
+        }
+        else
+        {
+            return 0;
+        }
+
+
+    }
+
 }

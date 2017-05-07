@@ -25,10 +25,13 @@
                     <button class="btn btn-primary" id="perbunit{{$unit->id}}">{{$unit->name}}</button>
                     @endif
                 @endforeach
+                <br/><hr>
+
+            {{--Average mark of units--}}
+            <h3><strong>Average mark of every unit's lectures.</strong></h3>
+            <div id="UnitsChart" style="height: 250px; width: 1000px;"></div><br/>
 
             </center>
-            <i>In order to ensure the anonymity of the students, anyone who has the unit's key can answer a lecture's question more than once.
-                Therefore the "Student's Answered Percentage" statistic is not always accurate.</i>
         </div>
         {{--<h2>Your Units</h2>--}}
 
@@ -54,7 +57,7 @@
         {{--@endforeach--}}
     @else
         You currently have no units.
-        @endif
+    @endif
 
 
     <script>
@@ -233,6 +236,51 @@
                 };
 
         // Event listener to load script on window load.
+        window.addEventListener('load', initMorrisLogic);
+    </script>
+
+    <script>
+        var UnitsLine =
+        {
+            element: 'UnitsChart',
+            data: [
+
+                @foreach($units as $index=>$unit)
+                    @if($index == sizeof($units)-1)
+                        {y: '{{$unit->name}}', a: {{$unit->average()}}}
+                    @else
+                        {y: '{{$unit->name}}', a: {{$unit->average()}}},
+                    @endif
+                @endforeach
+
+
+            ],
+            xkey: 'y',
+            ykeys: 'a',
+            labels: ['Series A']
+        };
+
+        var initMorrisLogic = () => {
+
+            // The element where the carts will be appended
+            let chartElement = $('#UnitsChart');
+
+            // The morris.js chart object, we need this to destroy it.
+            let chartInstance;
+
+            // A function that creates a chart instance and clears the previous if it exists
+            let createChart = (chartOptions) => {
+                if(chartInstance) {
+                    chartElement.empty();
+                }
+                chartInstance = new Morris.Bar(chartOptions);
+            };
+
+            createChart(UnitsLine);
+
+
+        };
+
         window.addEventListener('load', initMorrisLogic);
     </script>
 @stop
