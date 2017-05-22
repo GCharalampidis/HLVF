@@ -46,7 +46,7 @@ Route::group(['middlewareGroups'=>'web','auth'], function()
     Route::get('/unit/{units}/masscreate', ['as' => 'admin.units.masscreate', 'uses' => 'UnitController@massCreate']);
     Route::resource('/admin/units', 'UnitController');
 
-    Route::get('staff/{id}/delete', ['as' => 'staff.delete', 'uses' => 'UserController@destroy']);
+    Route::get('staff/{staff}/delete', ['as' => 'staff.delete', 'uses' => 'UserController@destroy']);
     Route::resource('/staff', 'UserController');
 
     Route::resource('/answerquestions', 'AnswerController');

@@ -54,5 +54,6 @@ class Kernel extends HttpKernel
         'myAuth' => \App\Http\Middleware\MyAuth::class,
         'lecturesAuth' => \App\Http\Middleware\lecturesAuth::class,
         'questionsAuth' => \App\Http\Middleware\questionsAuth::class,
+        'usersAuth' => \App\Http\Middleware\usersAuth::class,
     ];
 }

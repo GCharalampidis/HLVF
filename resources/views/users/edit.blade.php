@@ -28,12 +28,12 @@
 
                             <div class="form-group">
                                 {!! Form::label('hnumber', 'Home number:') !!}
-                                {!! Form::number('hnumber', null, ['class'=>'form-control']) !!}
+                                {!! Form::tel('hnumber', null, ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('mnumber', 'Mobile number:') !!}
-                                {!! Form::number('mnumber', null, ['class'=>'form-control']) !!}
+                                {!! Form::tel('mnumber', null, ['class'=>'form-control']) !!}
                             </div>
 
                             <div class="form-group">

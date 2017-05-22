@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\User;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class usersAuth
 {
@@ -15,6 +17,16 @@ class usersAuth
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+
+        $id = $request->route('staff');
+
+        $user = User::findOrFail($id); // Fetch the post
+
+        if($user->id == Auth::user()->id)
+        {
+            return $next($request); // They're the owner, lets continue...
+        }
+
+        return view('errors.403');  // Nope! Get outta' here.
     }
 }

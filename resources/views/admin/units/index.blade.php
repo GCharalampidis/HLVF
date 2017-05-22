@@ -36,7 +36,7 @@
                     <td>{{$unit->year}}</td>
                     <td>{{$unit->studentnumber}}</td>
                     <td>{{$unit->lecturesCount()}}</td>
-                    <td>@if($unit->lecturesCount() > 0){{$unit->activeLecture()->name}} @else No Active Lecture @endif</td>
+                    <td>@if($unit->lecturesCount() > 0)<a href="{{route('lectures.show', $unit->activeLecture()->id)}}">{{$unit->activeLecture()->name}}</a> @else No Active Lecture @endif</td>
                     <td>
                         @if($unit->average() == -1)
                             No Answers
